@@ -1,0 +1,61 @@
+companyName: Minha Empresa
+companyPhone: ""
+companyWhatsapp: ""
+companyEmail: contato@minhaempresa.com.br
+companyAddress: Rua Exemplo, 123 - Bairro
+companyCity: São Paulo
+companyState: SP
+companyCEP: 01000-000
+heroBadge: Andaime para Obra
+heroTitle: Aluguel de Andaime
+heroTitleHighlight: em São Paulo
+heroSubtitle: Andaimes metálicos e fachadeiros para obras e serviços em altura. Montagem inclusa. Segurança garantida. Diária ou mensal.
+heroCtaText: Falar no WhatsApp
+heroCtaSecondaryText: Ver tipos
+heroWhatsappMessage: Olá! Preciso alugar andaime para minha obra. Vocês montam?
+heroBackground: ""
+socialTitle: Empresas que confiam em nós
+socialProofActive: false
+clients: []
+servicesTitle: Andaimes para Locação
+servicesSubtitle: Segurança nas alturas
+featuredServices:
+  - aluguel-de-andaime
+  - aluguel-andaime-fachadeiro
+  - aluguel-andaime-movel
+  - aluguel-andaime-tubular
+  - aluguel-plataforma-elevatoria
+  - aluguel-escada-aluminio
+  - montagem-de-andaime
+aboutTitle: Referência em Aluguel de Andaime
+aboutSubtitle: Equipamentos certificados
+aboutText: Locamos andaimes metálicos, fachadeiros e móveis para obras e serviços em altura. Montagem e desmontagem por equipe treinada. Equipamentos com certificação.
+aboutImage: ""
+aboutStats:
+  - number: "10"
+    label: 2323566'nos de experiência
+  - number: 3000+
+    label: Obras atendidas
+  - number: 100%
+    label: Segurança garantida
+locationTitle: Nossa Localização
+locationAddress: Rua Exemplo, 123 - Bairro - São Paulo/SP
+locationMapEmbed: ""
+ctaTitle: Precisa de ajuda agora?
+ctaText: Nossa equipe está disponível para atender você. Clique abaixo e fale conosco pelo WhatsApp!
+ctaButtonText: Chamar no WhatsApp
+ctaWhatsappMessage: Olá! Gostaria de mais informações.
+activeTemplateId: aluguel-andaime
+formTitle: Orçamento Gratuito
+formSubtitle: Resposta em minutos · Sem compromisso
+formNamePlaceholder: Seu nome
+formPhonePlaceholder: Seu telefone / WhatsApp
+formMessagePlaceholder: Descreva o que você precisa
+formButtonText: Enviar pelo WhatsApp
+trustBadges:
+  - ✅ Orçamento gratuito
+  - ⚡ Resposta rápida
+  - 🔒 Sem spam
+  - ⭐ Atendimento local
+ctaFooterTitle: Orçamento gratuito em
+ctaFooterSubtitle: Atendemos rápido. Resposta em minutos, sem compromisso.

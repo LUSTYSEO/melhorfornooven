@@ -1,0 +1,17 @@
+siteName: CNX Agency
+colorScheme: dark
+siteMode: blog
+aiProvider: openai
+aiApiKey: ""
+pexelsApiKey: ""
+canonicalUrl: ""
+companyPhone: ""
+companyWhatsapp: ""
+generateSitemap: true
+generateRobots: true
+robotsDisallow:
+  - /admin
+  - /api
+blogPermalinkStructure: postname
+blogUrlPrefix: blog
+autoUpdateEnabled: true

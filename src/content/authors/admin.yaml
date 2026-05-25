@@ -1,0 +1,8 @@
+name: Admin
+slug: admin
+role: Administrador
+avatar: ""
+bio: Conta padrão do sistema. Altere a senha após o primeiro acesso.
+email: spassibvendaslima@gmail.com
+adminRole: admin
+adminPasswordHash: ecbf731b83e56c756e136af30d78051c2895808d076def1bd31787d49dbf51e6
