@@ -13,5 +13,5 @@ robotsDisallow:
   - /admin
   - /api
 blogPermalinkStructure: postname
-blogUrlPrefix: blog
+blogUrlPrefix: root
 autoUpdateEnabled: true
