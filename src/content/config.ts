@@ -300,4 +300,18 @@ const nichos = defineCollection({
     }),
 });
 
-export const collections = { posts, authors, categories, homepage, siteThemes, siteSettings, lp1, services, locations, nichos };
+const pages = defineCollection({
+    loader: glob({ pattern: '**/*.{md,mdoc}', base: './src/content/pages' }),
+    schema: z.object({
+        title: z.string(),
+        slug: z.string(),
+        author: z.string().optional(),
+        publishedDate: z.string().optional(),
+        category: z.string().optional(),
+        thumbnail: z.string().optional(),
+        metaTitle: z.string().optional(),
+        metaDescription: z.string().optional(),
+        metaImage: z.string().optional(),
+    }),
+});
+export const collections = { posts, authors, categories, homepage, siteThemes, siteSettings, lp1, services, locations, nichos, pages };
