@@ -1,5 +1,5 @@
 logoType: text
-logoText: SUA MELHOR LAVADORA
+logoText: Melhor Forno Oven
 logoImage: /images/general/1779560152584-Logo-Lavanderia.jpg
 items:
   - label: Home
@@ -7,7 +7,7 @@ items:
     icon: 🏠
     target: _self
   - label: Sobre
-    href: /sobre
+    href: /sobre-a-isabela
     icon: 📄
     target: _self
   - label: Blog
@@ -15,6 +15,6 @@ items:
     icon: 📝
     target: _self
   - label: Contato
-    href: /contato
+    href: /fale-com-a-isabela
     icon: 📧
     target: _self
