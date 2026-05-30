@@ -1,6 +1,6 @@
-siteName: Meu Blog
-copyright: © 2025 Meu Blog. Todos os direitos reservados.
-description: Blog sobre JAMstack, desenvolvimento web moderno e empreendedorismo digital. Feito com Astro e hospedado na Vercel.
+siteName: Melhor Forno Oven
+copyright: copyright: © 2026 Melhor Forno Oven. Todos os direitos reservados.
+description: description: O Melhor Forno Oven é o guia definitivo para o universo dos fornos elétricos e air fryers. Trazemos avaliações honestas, receitas práticas e guias de compra detalhados.
 columns:
   - title: Navegação
     links:
@@ -9,9 +9,9 @@ columns:
       - label: Blog
         href: /blog
       - label: Sobre
-        href: /sobre
+        href: /sobre-a-isabela
       - label: Contato
-        href: /contato
+        href: /fale-com-a-isabela
   - title: Legal
     links:
       - label: Política de Privacidade
