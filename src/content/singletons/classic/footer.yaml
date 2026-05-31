@@ -18,6 +18,8 @@ columns:
         href: /privacidade
       - label: Termos de Uso
         href: /termos
+      - label: Aviso de Afiliado
+        href: /aviso-de-afiliado
 socialLinks:
   - platform: LinkedIn
     url: https://linkedin.com
