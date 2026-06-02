@@ -3,24 +3,24 @@ import path from 'path';
 
 const postsDir = './src/content/posts';
 
-// O Dicionário de Curadoria feito pelo usuário
+// Dicionário atualizado com as novas adições do usuário
 const updates = {
-  "air-fryer-wap-e-boa.mdoc": "/wp-content/uploads/2025/11/air-fryer-wap-e-boa-modelos.webp",
-  "melhor-air-fryer-oven-custo-beneficio.mdoc": "/wp-content/uploads/2025/11/melhor-air-fryer-oven-custo-beneficio-comparativo.webp",
-  "onde-comprar-air-fryer-oven.mdoc": "/wp-content/uploads/2025/10/mulher-indecisa-escolhendo-air-fryer-loja.webp",
-  "melhor-air-fryer-oven-electrolux.mdoc": "/wp-content/uploads/2025/10/air-fryer-electrolux-e-boa.jpg",
-  "air-fryer-britania-e-boa.mdoc": "/wp-content/uploads/2025/10/air-fryer-britania-e-boa.jpg",
-  "air-fryer-oven-philco-pfr2200p-e-boa.mdoc": "/wp-content/uploads/2025/10/air-fryer-oven-philco-pfr2200p-review-analise.webp",
-  "air-fryer-oven-mondial.mdoc": "/wp-content/uploads/2025/09/air-fryer-oven-mondial-analise-completa.jpg",
-  "air-fryer-oven-oster.mdoc": "/wp-content/uploads/2025/11/air-fryer-oven-oster-e-boa-analise.jpg",
-  "air-fryer-oven-philco.mdoc": "/wp-content/uploads/2025/09/air-fryer-oven-philco-analise-modelo.jpg",
-  "air-fryer-oven.mdoc": "/wp-content/uploads/2025/09/melhor-air-fryer-oven-multifuncional.webp",
-  "pode-usar-forma-de-aluminio-na-air-fryer-oven.mdoc": "/wp-content/uploads/2025/10/pode-usar-forma-de-aluminio-na-air-fryer-oven.webp",
+  "melhor-air-fryer-oven.mdoc": "/wp-content/uploads/2025/09/melhor-air-fryer-oven-1.jpg",
+  "receitas-para-air-fryer-oven.mdoc": "/wp-content/uploads/2025/09/50-receitas-para-Air-Fryer-Oven.jpg",
+  "forma-de-silicone-para-air-fryer-oven.mdoc": "/wp-content/uploads/2025/11/como-usar-forma-de-silicone-air-fryer-oven.jpg.webp",
+  "air-fryer-oven-oster.mdoc": "/wp-content/uploads/2025/09/air-fryer-oven-oster-e-boa-analise.jpg",
+  "batata-frita-na-air-fryer-oven.mdoc": "/wp-content/uploads/2025/09/air-fryer-oven-oster-e-boa-analise.jpg",
+  "melhor-air-fryer-oven-espeto-giratorio.mdoc": "/wp-content/uploads/2025/11/melhor-air-fryer-oven-espeto-giratorio-frango-assado.webp",
+  "como-usar-o-espeto-giratorio-air-fryer-oster.mdoc": "/wp-content/uploads/2026/01/como-usar-espeto-giratorio-air-fryer-oster.webp",
   "air-fryer-oven-com-espeto-giratorio.mdoc": "/wp-content/uploads/2025/09/air-fryer-oven-espeto-giratorio.webp"
 };
 
 Object.entries(updates).forEach(([filename, newImage]) => {
-  const filePath = path.join(postsDir, filename);
+  // Testa tanto para .mdoc quanto para .md
+  let filePath = path.join(postsDir, filename);
+  if (!fs.existsSync(filePath)) {
+    filePath = path.join(postsDir, filename.replace('.mdoc', '.md'));
+  }
   
   if (fs.existsSync(filePath)) {
     let content = fs.readFileSync(filePath, 'utf8');
@@ -31,6 +31,6 @@ Object.entries(updates).forEach(([filename, newImage]) => {
     fs.writeFileSync(filePath, updatedContent, 'utf8');
     console.log(`✓ Thumbnail atualizado: ${filename}`);
   } else {
-    console.log(`✗ ARQUIVO NÃO ENCONTRADO: ${filename} (Verifique se a extensão é .md ou .mdoc)`);
+    console.log(`✗ ARQUIVO NÃO ENCONTRADO: ${filename}`);
   }
 });
