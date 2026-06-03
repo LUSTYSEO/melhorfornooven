@@ -15,13 +15,13 @@ columns:
   - title: Categorias
     links:
       - label: Guias de Compra
-        href: /guias-de-compra
+        href: /categoria/guias-de-compra
       - label: Reviews
-        href: /reviews
+        href: /categoria/reviews
       - label: Receitas
-        href: /receitas
+        href: /categoria/receitas
       - label: Dicas de Uso
-        href: /dicas-de-uso
+        href: /categoria/dicas-de-uso
   - title: Legal
     links:
       - label: Política de Privacidade
