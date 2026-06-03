@@ -12,6 +12,16 @@ columns:
         href: /sobre-a-isabela
       - label: Contato
         href: /fale-com-a-isabela
+  - title: Categorias
+    links:
+      - label: Guias de Compra
+        href: /guias-de-compra
+      - label: Reviews
+        href: /reviews
+      - label: Receitas
+        href: /receitas
+      - label: Dicas de Uso
+        href: /dicas-de-uso
   - title: Legal
     links:
       - label: Política de Privacidade
