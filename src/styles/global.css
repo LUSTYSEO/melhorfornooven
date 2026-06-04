@@ -263,6 +263,8 @@ html.light .prose-invert {
 .custom-product-list {
     margin: 2.5rem 0;
     width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .custom-product-list table {
