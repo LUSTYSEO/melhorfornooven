@@ -1,0 +1,152 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import MainLayout from '../../layouts/MainLayout.astro';
+import { getPostUrl, type BlogPermalinkStructure, type BlogUrlPrefix } from '../../utils/blog-permalink';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const categories = await getCollection('categories');
+  return categories.map(category => ({
+    params: { slug: category.id },
+    props: { category },
+  }));
+}
+
+const { category } = Astro.props;
+
+// Buscar e filtrar posts desta categoria
+const allPosts = await getCollection('posts');
+const categoryPosts = allPosts
+  .filter(post => post.data.category === category.id && post.data.publishedDate)
+  .sort((a, b) => new Date(b.data.publishedDate!).getTime() - new Date(a.data.publishedDate!).getTime());
+
+// Buscar configurações de permalink
+const settings = await getEntry('siteSettings', 'settings').catch(() => null);
+const blogPermalinkStructure = (settings?.data?.blogPermalinkStructure as BlogPermalinkStructure) || 'postname';
+const blogUrlPrefix = (settings?.data?.blogUrlPrefix as BlogUrlPrefix) || 'blog';
+---
+
+<MainLayout 
+  title={`${category.data.name} — Artigos e Novidades`}
+  description={`Confira todos os nossos artigos, guias e dicas publicados na categoria ${category.data.name}.`}
+>
+  
+  <!-- HERO SECTION -->
+  <section class="relative min-h-[40vh] flex items-center justify-center pt-24 overflow-hidden">
+    <div class="absolute inset-0" style="background: var(--blog-hero-grad);">
+      <div class="absolute inset-0 opacity-30">
+        <div class="absolute inset-0" style="background-image: linear-gradient(to right, var(--blog-grid) 1px, transparent 1px), linear-gradient(to bottom, var(--blog-grid) 1px, transparent 1px); background-size: 60px 60px;"></div>
+      </div>
+      <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] animate-pulse"></div>
+      <div class="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] bg-secondary/8 rounded-full blur-[100px] animate-pulse" style="animation-delay: 1.5s;"></div>
+    </div>
+    
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="max-w-5xl mx-auto text-center">
+        <div class="inline-flex items-center gap-2 px-5 py-2.5 mb-8 rounded-full border border-primary/40 bg-primary/10 backdrop-blur-sm">
+          <span class="text-sm md:text-base font-semibold text-primary tracking-wide">🏷️ Categoria</span>
+        </div>
+        
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-black leading-[1.1] mb-6 blog-hero-title">
+          {category.data.name}
+        </h1>
+        
+        <p class="text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto leading-relaxed" style="color: var(--blog-text-muted);">
+          Todos os artigos publicados em <strong class="text-white">{category.data.name}</strong>
+        </p>
+      </div>
+    </div>
+    
+    <div class="absolute bottom-0 left-0 right-0 h-40" style="background: var(--blog-fade-bottom);"></div>
+  </section>
+
+  <!-- POSTS GRID -->
+  <section class="py-20 relative overflow-hidden" style="background: var(--blog-section-alt);">
+    <div class="container mx-auto px-6">
+      {categoryPosts.length === 0 ? (
+        <div class="text-center py-20 max-w-lg mx-auto">
+          <span class="text-5xl mb-4 block">📝</span>
+          <p class="text-2xl font-bold mb-2" style="color: var(--blog-text);">Nenhum post publicado nesta categoria ainda</p>
+          <p class="text-sm" style="color: var(--blog-text-subtle);">Estamos preparando conteúdos incríveis. Volte em breve!</p>
+        </div>
+      ) : (
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
+          {categoryPosts.map((post) => {
+            const thumbnail = post.data.thumbnail || post.data.metaImage;
+            const postUrl = getPostUrl(
+              { ...post, data: { ...post.data, slug: post.data.slug || post.id } },
+              blogPermalinkStructure,
+              blogUrlPrefix
+            );
+            return (
+              <a 
+                href={postUrl} 
+                class="blog-card group block p-6"
+              >
+                {thumbnail ? (
+                  <div class="mb-4 rounded-xl overflow-hidden aspect-video" style="background: var(--blog-surface);">
+                    <img 
+                      src={thumbnail} 
+                      alt={post.data.title}
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  </div>
+                ) : (
+                  <div class="mb-4 rounded-xl overflow-hidden aspect-video bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center" style="border: 1px solid var(--blog-border);">
+                    <span class="text-4xl opacity-50">📝</span>
+                  </div>
+                )}
+                
+                <div class="mb-3">
+                  <span class="text-[10px] font-bold uppercase tracking-widest px-3 py-1 bg-primary/20 text-primary border border-primary/30 rounded-full">
+                    {category.data.name}
+                  </span>
+                </div>
+                
+                <h2 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors leading-tight line-clamp-2" style="color: var(--blog-text);">
+                  {post.data.title}
+                </h2>
+                
+                {post.data.metaDescription && (
+                  <p class="text-sm mb-4 line-clamp-2" style="color: var(--blog-text-muted);">
+                    {post.data.metaDescription}
+                  </p>
+                )}
+                
+                <div class="flex items-center justify-between text-sm mt-auto" style="color: var(--blog-text-subtle);">
+                  {post.data.publishedDate && (
+                    <span>
+                      {new Date(post.data.publishedDate).toLocaleDateString('pt-BR', {
+                        day: '2-digit',
+                        month: 'short',
+                        year: 'numeric'
+                      })}
+                    </span>
+                  )}
+                  <span class="group-hover:translate-x-2 transition-transform duration-300 text-primary font-medium">
+                    Ler mais →
+                  </span>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  </section>
+
+</MainLayout>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .blog-hero-title {
+    color: var(--blog-text) !important;
+  }
+</style>
