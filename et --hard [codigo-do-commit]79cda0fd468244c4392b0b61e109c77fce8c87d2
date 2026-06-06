@@ -1,0 +1,247 @@
+[33mcommit ae8ecfafbf8ee17cf4dda560bc60a492674bd29d[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: lustyseo <wanderbatistadelima@gmail.com>
+Date:   Fri Jun 5 06:59:57 2026 -0300
+
+    Padronizacao de tabelas e botoes Amazon
+
+[33mcommit a61b716c604ca0b6a7706ec1add4e751ec5a87b6[m
+Author: lustyseo <wanderbatistadelima@gmail.com>
+Date:   Thu Jun 4 19:45:55 2026 -0300
+
+    Correção manual dos botoes
+
+[33mcommit 79cda0fd468244c4392b0b61e109c77fce8c87d2[m
+Author: lustyseo <wanderbatistadelima@gmail.com>
+Date:   Thu Jun 4 08:35:25 2026 -0300
+
+    Atualizando estilo do produto e post
+
+[33mcommit 46943b2f76d6d95a718b938cab25ae3ba6f99b54[m
+Author: lustyseo <wanderbatistadelima@gmail.com>
+Date:   Thu Jun 4 07:30:52 2026 -0300
+
+    Cria rota dinâmica para páginas de categoria
+
+[33mcommit 5c254d6c155095533bf7560d4602554320939974[m
+Author: lustyseo <wanderbatistadelima@gmail.com>
+Date:   Wed Jun 3 07:13:48 2026 -0300
+
+    Corrige rotas das categorias no footer
+
+[33mcommit 89f013465387d507d1d84cd5cd89eb8589030483[m
+Author: lustyseo <wanderbatistadelima@gmail.com>
+Date:   Tue Jun 2 21:35:44 2026 -0300
+
+    Adiciona categorias ao footer
+
+[33mcommit 45b4d9fd85dd62d1949cffada68b491a3a27561b[m
+Author: lustyseo <wanderbatistadelima@gmail.com>
+Date:   Tue Jun 2 16:12:23 2026 -0300
+
+    Ajuste fino de SEO parte 2 - Mais thumbnails atualizados
+
+[33mcommit c40b5a98ce83921b75d2de97f86ded28e3f57bab[m
+Merge: 7e66e8b fe7baa0
+Author: lustyseo <wanderbatistadelima@gmail.com>
+Date:   Tue Jun 2 12:30:55 2026 -0300
+
+    Merge branch 'main' of https://github.com/LUSTYSEO/melhorfornooven
+    
+    # Conflicts:
+    #       src/content/posts/air-fryer-wap-e-boa.mdoc
+
+[33mcommit 7e66e8bf80300db268a79eb5e0904329ff99436b[m
+Author: lustyseo <wanderbatistadelima@gmail.com>
+Date:   Tue Jun 2 12:30:19 2026 -0300
+
+    Ajuste fino de SEO nas imagens de destaque
+
+[33mcommit fe7baa00305ae32b826277634a050bc67b1e436b[m
+Author: LUSTYSEO <wanderbatistadelima@gmail.com>
+Date:   Mon Jun 1 23:45:04 2026 -0300
+
+    Update air-fryer-oven-vermelha.mdoc
+
+[33mcommit 35a058ff34470ba67ebb45a76e8d2145d79c7cbb[m
+Author: LUSTYSEO <wanderbatistadelima@gmail.com>
+Date:   Mon Jun 1 23:43:32 2026 -0300
+
+    Add files via upload
+
+[33mcommit 12d18edaf39b4d2b017a7f1226af1f887fa0bbcd[m
+Author: LUSTYSEO <wanderbatistadelima@gmail.com>
+Date:   Mon Jun 1 23:20:04 2026 -0300
+
+    Update melhor-air-fryer-oven.mdoc
+
+[33mcommit 9c9ad0ff3c8d735d29d05c7a2e5b9c3562a2ad6f[m
+Author: LUSTYSEO <wanderbatistadelima@gmail.com>
+Date:   Mon Jun 1 23:18:24 2026 -0300
+
+    Update air-fryer-oven-vermelha.mdoc
+
+[33mcommit 56b957ae13cfc40ca457bcdd19197b3c9e1467d2[m
+Author: LUSTYSEO <wanderbatistadelima@gmail.com>
+Date:   Mon Jun 1 22:53:57 2026 -0300
+
+    Update o-que-e-air-fryer-oven.mdoc
+
+[33mcommit d24e4841b34d7a802f30e58d641aa9dbf17a5380[m
+Author: LUSTYSEO <wanderbatistadelima@gmail.com>
+Date:   Mon Jun 1 22:52:37 2026 -0300
+
+    Update air-fryer-wap-e-boa.mdoc
+
+[33mcommit 6fb463ec50cddda9df927b03e64d0b2e2bc94cf9[m
+Author: LUSTYSEO <wanderbatistadelima@gmail.com>
+Date:   Mon Jun 1 22:50:17 2026 -0300
+
+    Change thumbnail image in air fryer oven post
+    
+    Updated the thumbnail image for the air fryer oven post.
+
+[33mcommit 86430f2e3ca5eec021f21c50ceb4cc38329f8868[m
+Author: LUSTYSEO <wanderbatistadelima@gmail.com>
+Date:   Mon Jun 1 22:49:05 2026 -0300
+
+    Update thumbnail image for air fryer post
+
+[33mcommit 05610cc0cef65d0d467a9075f7c7275dac7a6459[m
+Author: LUSTYSEO <wanderbatistadelima@gmail.com>
+Date:   Mon Jun 1 22:48:20 2026 -0300
+
+    Update melhor-air-fryer-oven.mdoc
+
+[33mcommit 7b4b215c26d93e269e8981cb67fccf29f5afed0b[m
+Author: LUSTYSEO <wanderbatistadelima@gmail.com>
+Date:   Mon Jun 1 22:47:42 2026 -0300
+
+    Change thumbnail image for melhor air fryer oven post
+    
+    Updated the thumbnail image for the melhor air fryer oven post.
+
+[33mcommit 2d07946b1a159f9a4af4f6af853cf103ef02915a[m
+Author: lustyseo <wanderbatistadelima@gmail.com>
+Date:   Mon Jun 1 22:08:00 2026 -0300
+
+    Ajuste inteligente de thumbnails
+
+[33mcommit 7a7fae73aef5bbb878de16ac0c575979248a48fa[m
+Author: lustyseo <wanderbatistadelima@gmail.com>
+Date:   Mon Jun 1 14:26:59 2026 -0300
+
+    fix: corrige 46 links internos quebrados do silo apontando para slugs inexistentes
+
+[33mcommit d93fd6c206f337aea203a5b31dc24065ce27767c[m
+Author: lustyseo <wanderbatistadelima@gmail.com>
+Date:   Mon Jun 1 14:11:00 2026 -0300
+
+    fix: atualiza as thumbnails dos posts de acordo com as imagens fisicas
+
+[33mcommit d8c3c4bbb5026eacf0b939ee28651bd0e40ed7be[m
+Author: lustyseo <wanderbatistadelima@gmail.com>
+Date:   Mon Jun 1 13:36:11 2026 -0300
+
+    fix: corrige caminhos, caixa de URLs de imagens e baixa imagens ausentes
+
+[33mcommit a8850ada259a8a572e0a7e5dc94640c8ae7d21d0[m
+Author: lustyseo <wanderbatistadelima@gmail.com>
+Date:   Mon Jun 1 10:21:07 2026 -0300
+
+    Resgate e upload de todas as imagens do WordPress
+
+[33mcommit 100f7ecd5f4b628f8375e31e512f333537fffb2f[m
+Author: lustyseo <wanderbatistadelima@gmail.com>
+Date:   Mon Jun 1 09:50:48 2026 -0300
+
+    Ajustes finais de layout, tabelas e links
+
+[33mcommit 605f4ae3f919cf46d1747a62bc6514525eca8716[m
+Author: lustyseo <wanderbatistadelima@gmail.com>
+Date:   Mon Jun 1 08:22:37 2026 -0300
+
+    fix: remove tabelas HTML estilizadas vazando como texto nos posts WAP e 500 reais
+
+[33mcommit 9fa64851adf6b4b2b7fefd2c48ab5466a5046370[m
+Author: lustyseo <wanderbatistadelima@gmail.com>
+Date:   Sun May 31 21:07:40 2026 -0300
+
+    chore: deleta posts de teste, converte tabelas HTML para Markdown e corrige caminhos de imagem wp-content/uploads
+
+[33mcommit e6f28cd6c785e61024e7fa0049b7cbf04507dc07[m
+Author: lustyseo <wanderbatistadelima@gmail.com>
+Date:   Sun May 31 20:41:20 2026 -0300
+
+    feat: ajusta branding, slugs legal, adiciona aviso de afiliado, atualiza home/blog para nicho air fryer oven e corrige links
+
+[33mcommit 05bf4020619cb932462c27c708bafd6c8dc08aff[m
+Author: LUSTYSEO <wanderbatistadelima@gmail.com>
+Date:   Sat May 30 12:46:06 2026 -0300
+
+    Fix icon formatting for Twitter/X in footer.yaml
+
+[33mcommit d6956e5492a3df81318054baabbb5d06c7d18cc4[m
+Author: LUSTYSEO <wanderbatistadelima@gmail.com>
+Date:   Sat May 30 12:44:50 2026 -0300
+
+    Update footer.yaml
+
+[33mcommit b0158510ea26a7001a972918a4602150bd83a06d[m
+Author: LUSTYSEO <wanderbatistadelima@gmail.com>
+Date:   Sat May 30 12:36:17 2026 -0300
+
+    Fix duplicate copyright and description keys in YAML
+
+[33mcommit 2f8ccfa307edc51a7327894165584edca2ba6128[m
+Author: LUSTYSEO <wanderbatistadelima@gmail.com>
+Date:   Sat May 30 12:35:26 2026 -0300
+
+    Update footer.yaml
+
+[33mcommit 3710a384dbcf42d9b81f44f868d1bb5f56960708[m
+Author: LUSTYSEO <wanderbatistadelima@gmail.com>
+Date:   Sat May 30 12:30:38 2026 -0300
+
+    Update logo type and text in menu.yaml
+
+[33mcommit 872ade49566ac7b0d23a19651f313fb1725db840[m
+Author: LUSTYSEO <wanderbatistadelima@gmail.com>
+Date:   Sat May 30 12:28:57 2026 -0300
+
+    Update menu.yaml
+
+[33mcommit 7b216fc4b5a39846451be565e26eb6b3c1ba00c3[m
+Author: LUSTYSEO <wanderbatistadelima@gmail.com>
+Date:   Wed May 27 13:51:28 2026 -0300
+
+    Update site name in settings.yaml
+
+[33mcommit eea8e68cc1572a700e3ff649819692047f66b983[m
+Author: LUSTYSEO <wanderbatistadelima@gmail.com>
+Date:   Wed May 27 13:41:33 2026 -0300
+
+    Rename politica-de-privacidade.mdoc to privacidade.mdoc
+
+[33mcommit a3da9035082c3135aa7d019cb89ab2a585332881[m
+Author: LUSTYSEO <wanderbatistadelima@gmail.com>
+Date:   Wed May 27 13:38:05 2026 -0300
+
+    Rename termos-de-uso.mdoc to termos.mdoc
+
+[33mcommit e0aa69b6bb3a0f9a4649a6930e1ee3bc0b8fe2e0[m
+Author: lustyseo <wanderbatistadelima@gmail.com>
+Date:   Tue May 26 15:31:23 2026 -0300
+
+    Migração e organização institucional
+
+[33mcommit 71835bafd5fe9901469b34a59eb16127b8c44a8a[m
+Author: lustyseo <wanderbatistadelima@gmail.com>
+Date:   Tue May 26 14:50:43 2026 -0300
+
+    Migração completa de 52 posts com limpeza de malware
+
+[33mcommit a7fba2f91ccf73f77b6944b8d2fe4ca4fce11ac0[m
+Author: LUSTYSEO <wanderbatistadelima@gmail.com>
+Date:   Sun May 24 22:44:47 2026 -0300
+
+    Initial commit
