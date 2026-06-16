@@ -94,6 +94,16 @@ const secondaryRGB = hexToRgb(secondaryColor);
             /* Force basic styles even if tailwind fails for a second */
             body { background: var(--blog-bg); color: var(--blog-text); }
 		</style>
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XBFFLWRHF1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-XBFFLWRHF1');
+        </script>
 	</head>
 	<body class="font-sans antialiased min-h-screen flex flex-col selection:bg-primary selection:text-white" style="background: var(--blog-bg); color: var(--blog-text);">
         <!-- Background Gradient -->
