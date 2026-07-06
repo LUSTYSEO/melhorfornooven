@@ -29,12 +29,14 @@ const socialLinks = footerData?.socialLinks || [];
         <div class="grid md:grid-cols-4 gap-12 mb-16">
             <div class="col-span-2">
                 <div class="text-2xl font-heading font-black text-white mb-6">{siteName}</div>
-                <p class="text-slate-500 max-w-sm leading-relaxed">{description}</p>
+                {/* text-slate-400 (#94a3b8) sobre #0a0a0a = contraste ~6.2:1 — pass WCAG AA */}
+                <p class="text-slate-400 max-w-sm leading-relaxed">{description}</p>
             </div>
             {columns.map((column: any) => (
                 <div>
                     <h4 class="text-white font-bold mb-6 uppercase tracking-widest text-xs">{column.title}</h4>
-                    <ul class="space-y-4 text-sm text-slate-500">
+                    {/* text-slate-400 — contraste adequado sobre fundo dark */}
+                    <ul class="space-y-4 text-sm text-slate-400">
                         {(column.links || []).map((link: any) => (
                             <li>
                                 <a href={link.href} class="hover:text-primary transition-colors">{link.label}</a>
@@ -44,7 +46,7 @@ const socialLinks = footerData?.socialLinks || [];
                 </div>
             ))}
         </div>
-        <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-600 font-medium whitespace-nowrap overflow-hidden">
+        <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500 font-medium whitespace-nowrap overflow-hidden">
             <p>{copyright}</p>
             <div class="flex gap-6 uppercase tracking-widest items-center">
                 {socialLinks.length > 0 && (

@@ -5,15 +5,18 @@ phone: +55 (41) 99876-5432
 address: |-
   Rua Heitor Stockler de França, 396, Sala 801 - Centro Cívico, Curitiba - PR, 80030-030
 socialLinks:
-  - platform: LinkedIn
-    url: https://linkedin.com
-    icon: 💼
-  - platform: GitHub
-    url: https://github.com
-    icon: 🐙
-  - platform: Twitter / X
-    url: https://twitter.com
-    icon: 🐦
+  - platform: Facebook
+    url: https://www.facebook.com/profile.php?id=61582131759490
+    icon: 👥
+  - platform: Pinterest
+    url: https://www.pinterest.com/isabeladantasairfryer
+    icon: 📌
+  - platform: Tumblr
+    url: https://www.tumblr.com/blog/isabeladantasairfryer
+    icon: 📝
+  - platform: Gravatar
+    url: https://gravatar.com/otternoisilye512264136
+    icon: 👤
 formTitle: Envie sua Mensagem
 formSubmitText: Enviar Mensagem
 formSuccessMessage: Mensagem enviada com sucesso! Entrarei em contato em breve. Obrigado!

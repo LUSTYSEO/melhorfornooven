@@ -17,5 +17,13 @@ export default defineConfig({
         tailwind(), 
         markdoc({ allowHTML: true })
     ],
+    // Otimizações de build — melhora PageSpeed (CSS blocking, LCP)
+    vite: {
+        build: {
+            cssMinify: 'esbuild',
+            cssCodeSplit: true,
+        },
+    },
     // Reset Trigger: 2026-02-07 11:40
 });
+

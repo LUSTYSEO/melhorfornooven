@@ -93,6 +93,11 @@ const secondaryRGB = hexToRgb(secondaryColor);
 			}
             /* Force basic styles even if tailwind fails for a second */
             body { background: var(--blog-bg); color: var(--blog-text); }
+			/* font-display: swap — evita FOIT (Flash of Invisible Text) e melhora LCP */
+			@font-face { font-family: 'Inter Variable'; font-display: swap; }
+			@font-face { font-family: 'Outfit Variable'; font-display: swap; }
+			@font-face { font-family: 'Inter'; font-display: swap; }
+			@font-face { font-family: 'Outfit'; font-display: swap; }
 		</style>
 
         <!-- Google tag (gtag.js) -->

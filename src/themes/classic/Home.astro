@@ -101,7 +101,10 @@ const contactData = await readSingleton('contact', themeId);
                                     src={client.logo} 
                                     alt={client.name || 'Cliente'} 
                                     class="max-h-16 w-auto mx-auto"
+                                    width="128"
+                                    height="64"
                                     loading="lazy"
+                                    decoding="async"
                                 />
                             ) : (
                                 <div class="text-center">
@@ -147,7 +150,10 @@ const contactData = await readSingleton('contact', themeId);
                                         src={thumbnail} 
                                         alt={post.data.title}
                                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                        width="600"
+                                        height="338"
                                         loading="lazy"
+                                        decoding="async"
                                     />
                                 </div>
                             ) : (
@@ -255,7 +261,10 @@ const contactData = await readSingleton('contact', themeId);
                                     src={homeData.aboutImage} 
                                     alt={homeData.aboutTitle || 'Sobre Nós'}
                                     class="w-full h-full object-cover"
+                                    width="600"
+                                    height="600"
                                     loading="lazy"
+                                    decoding="async"
                                 />
                             </div>
                         ) : (

@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* font-display: swap — evita FOIT (Flash of Invisible Text) e melhora LCP */
+/* Override aplicado sobre os @font-face injetados pelo @fontsource */
+@font-face {
+  font-family: 'Inter';
+  font-display: swap;
+  src: local('Inter');
+}
+@font-face {
+  font-family: 'Outfit';
+  font-display: swap;
+  src: local('Outfit');
+}
+
 @layer base {
   :root {
     --primary-rgb: 168 85 247;
@@ -32,8 +45,9 @@ html, html.dark {
     --blog-surface-hover: rgba(255, 255, 255, 0.08);
     --blog-border:        rgba(255, 255, 255, 0.10);
     --blog-text:          #ffffff;
-    --blog-text-muted:    #94a3b8;
-    --blog-text-subtle:   #64748b;
+    /* Aumentados para contraste WCAG AA (≥4.5:1) sobre fundos #0a0a0a e #0f172a */
+    --blog-text-muted:    #b0bec5;
+    --blog-text-subtle:   #90a4ae;
     --blog-hero-grad:     linear-gradient(to bottom, #000000, #000000, #0a0a0a);
     --blog-hero-accent:   #60a5fa;
     --blog-nav-bg:        rgba(255, 255, 255, 0.05);
@@ -43,6 +57,7 @@ html, html.dark {
     --blog-grid:          rgba(168, 85, 247, 0.10);
     --blog-fade-bottom:   linear-gradient(to top, #000 0%, rgba(0,0,0,0.8) 50%, transparent 100%);
 }
+
 
 html.light {
     --blog-bg:            #f8fafc;

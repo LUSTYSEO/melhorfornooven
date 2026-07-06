@@ -68,6 +68,10 @@ const pageTitle = post.data.metaTitle || post.data.title;
                                     src={author.data.avatar} 
                                     alt={author.data.name} 
                                     class="w-12 h-12 rounded-full ring-2 ring-primary/30"
+                                    width="48"
+                                    height="48"
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                             )}
                             <div class="text-left">
@@ -111,7 +115,11 @@ const pageTitle = post.data.metaTitle || post.data.title;
                             src={post.data.thumbnail || post.data.metaImage} 
                             alt={post.data.title}
                             class="w-full h-auto"
-                            loading="lazy"
+                            width="1200"
+                            height="630"
+                            loading="eager"
+                            fetchpriority="high"
+                            decoding="async"
                         />
                     </div>
                 )}
@@ -135,10 +143,15 @@ const pageTitle = post.data.metaTitle || post.data.title;
                                     src={author.data.avatar} 
                                     alt={author.data.name} 
                                     class="w-24 h-24 rounded-full ring-4 ring-primary/30 shadow-xl"
+                                    width="96"
+                                    height="96"
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                             )}
                             <div class="flex-1">
-                                <h3 class="text-2xl font-bold mb-2" style="color: var(--blog-text);">Escrito por {author.data.name}</h3>
+                                {/* H2 — hierárquia correta: H1 é o título do post, a sequência pede H2 aqui */}
+                                <p class="text-2xl font-bold mb-2" style="color: var(--blog-text);">Escrito por {author.data.name}</p>
                                 {author.data.role && (
                                     <p class="text-primary mb-4 font-semibold">{author.data.role}</p>
                                 )}

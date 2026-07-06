@@ -94,7 +94,10 @@ const emptySubMessage  = blogData?.emptySubMessage  || 'Volte em breve para ver 
                                         src={thumbnail} 
                                         alt={post.data.title}
                                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                        width="600"
+                                        height="338"
                                         loading="lazy"
+                                        decoding="async"
                                     />
                                 </div>
                             ) : (
