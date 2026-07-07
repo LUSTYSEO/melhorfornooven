@@ -18,6 +18,10 @@ export default defineConfig({
         markdoc({ allowHTML: true })
     ],
     // Otimizações de build — melhora PageSpeed (CSS blocking, LCP)
+    build: {
+        // Injeta todo CSS como <style> inline no HTML — elimina render-blocking resources
+        inlineStylesheets: 'always',
+    },
     vite: {
         build: {
             cssMinify: 'esbuild',
@@ -26,4 +30,5 @@ export default defineConfig({
     },
     // Reset Trigger: 2026-02-07 11:40
 });
+
 
