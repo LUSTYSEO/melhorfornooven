@@ -1,46 +1,84 @@
-heroBadge: "✨ Guia Completo de Air Fryer Oven"
-heroTitle: O Melhor Forno Air Fryer Para Você
-heroSubtitle: Reviews honestos, receitas testadas e guias de compra completos para você escolher o melhor air fryer oven do mercado. Conteúdo feito por especialistas.
-heroCtaText: Ver Reviews
-heroCtaUrl: /blog
-heroImage: https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&h=700&fit=crop&auto=format
-socialProofTitle: Marcas que Analisamos
-clientLogos: []
-aboutTitle: Sobre o Melhor Forno Oven
-aboutSubtitle: O maior portal de reviews e receitas para Air Fryer Oven do Brasil.
-aboutContent: Somos um blog especializado em air fryer oven, com reviews detalhados, comparativos entre modelos, receitas testadas e guias de compra para ajudar você a fazer a melhor escolha. Com mais de uma década de experiência testando eletrodomésticos, trazemos conteúdo confiável e imparcial.
-aboutImage: https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=600&fit=crop&auto=format
+heroImage: "/wp-content/uploads/2026/07/hero-home-air-fryer-oven.jpg"
+heroBadge: "🏆 Reviews Independentes"
+heroTitle: "O guia definitivo de"
+heroTitleHighlight: "Air Fryer Oven"
+heroTitleEnd: "no Brasil"
+heroSubtitle: "Comparamos os melhores modelos de air fryer oven disponíveis na Amazon. Análises técnicas honestas para você fazer a escolha certa."
+heroCtaText: "Ver Reviews"
+heroCtaUrl: "/melhor-air-fryer-oven"
+heroCtaSecondaryText: "Comparar Marcas"
+heroCtaSecondaryUrl: "/blog"
+heroStats:
+  - number: "50+"
+    label: "Artigos publicados"
+  - number: "4.8★"
+    label: "Nota média dos tops"
+  - number: "100%"
+    label: "Opinião imparcial"
+
+guideTitle: "O Guia Mais Completo de Air Fryer Oven do Brasil"
+guideTag: "Melhor de 2026 — Ranking Completo e Atualizado"
+guideDescription: "Testamos os principais modelos do mercado, comparamos potência, capacidade, acessórios e preço. Confira o ranking definitivo para fazer a melhor escolha."
+guideCtaText: "Ler o Guia Completo"
+guideCtaUrl: "/melhor-air-fryer-oven"
+guideThumbnail: "/wp-content/uploads/2025/09/air-fryer-oven-philco-analise-modelo.jpg"
+
+benefits:
+  - icon: "🔥"
+    title: "Frango Perfeito"
+    description: "Crocante por fora, suculento por dentro"
+  - icon: "⚡"
+    title: "Cozinha Rápido"
+    description: "Até 40% mais rápido que forno convencional"
+  - icon: "💧"
+    title: "Menos Gordura"
+    description: "Até 80% menos óleo nas frituras"
+  - icon: "🍕"
+    title: "Muito Versátil"
+    description: "Frita, assa, gratina e desidrata"
+
+categories:
+  - title: "Tipos de Air Fryer Oven"
+    image: "/wp-content/uploads/2025/09/air-fryer-oven-philco-analise-modelo.jpg"
+    url: "/diferenca-entre-air-fryer-e-air-fryer-oven"
+    tag: "Ver Artigos"
+  - title: "Marcas"
+    image: "/wp-content/uploads/2025/09/air-fryer-oven-oster-ofrt790-digital.jpg"
+    url: "/blog"
+    tag: "Ver Artigos"
+  - title: "Melhores de 2026"
+    image: "/wp-content/uploads/2025/11/melhor-air-fryer-oven-espeto-giratorio-frango-assado.webp"
+    url: "/melhor-air-fryer-oven"
+    tag: "Ranking"
+  - title: "Air Fryer com Espeto"
+    image: "/wp-content/uploads/2026/03/diferenca-espeto-giratorio-vs-cesto-air-fryer.jpg.webp"
+    url: "/melhor-air-fryer-oven-espeto-giratorio"
+    tag: "Ver Artigos"
+  - title: "Receitas"
+    image: "/wp-content/uploads/2025/09/como-limpar-air-fryer-oven.jpg"
+    url: "/receitas-para-air-fryer-oven"
+    tag: "Ver Receitas"
+  - title: "Dicas de Uso"
+    image: "/wp-content/uploads/2025/12/air-fryer-oven-ou-microondas.webp"
+    url: "/como-usar-air-fryer-oven"
+    tag: "Ver Dicas"
+
+aboutTitle: "Quem somos?"
+aboutSubtitle: "Sobre o Melhor Forno Oven"
+aboutContent: "Sou a Isabela Dantas, especialista em eletrodomésticos e apaixonada por tudo que facilita o dia a dia na cozinha. Criamos o Melhor Forno Oven para desmistificar a tecnologia dos fornos air fryer e ajudar você a fazer a melhor escolha para a sua casa e o seu bolso. Aqui você encontra reviews honestos, comparativos detalhados e guias de compra que vão além das especificações técnicas."
+aboutImage: "https://1.gravatar.com/avatar/5c9b4ae7bcc399f5aaef14650b16e954d6d2a791f36cbc4f77fc28f2f38dffa4?size=512&d=initials"
+aboutCtaText: "Saiba Mais"
+aboutCtaUrl: "/sobre-a-isabela"
 aboutStats:
-  - number: 50+
-    label: Reviews Publicados
-  - number: 12+
-    label: Anos de Experiência
-  - number: 100%
-    label: Conteúdo Original
-servicesTitle: O Que Você Vai Encontrar
-servicesSubtitle: Conteúdo completo sobre air fryer oven para ajudar na sua decisão de compra
-services:
-  - title: Reviews Detalhados
-    description: Análises completas dos melhores modelos de air fryer oven do mercado, com prós, contras e veredito final.
-    icon: ⭐
-    url: /blog
-  - title: Comparativos
-    description: Comparações lado a lado entre modelos e marcas para você encontrar o air fryer oven ideal.
-    icon: ⚖️
-    url: /blog
-  - title: Receitas Testadas
-    description: Receitas deliciosas testadas no air fryer oven, do pão de queijo ao frango assado perfeito.
-    icon: 🍳
-    url: /blog
-  - title: Guias de Compra
-    description: Tudo que você precisa saber antes de comprar seu air fryer oven, incluindo faixa de preço e funcionalidades.
-    icon: 🛒
-    url: /blog
-  - title: Dicas de Uso
-    description: Como usar, limpar e conservar seu air fryer oven para máxima durabilidade e performance.
-    icon: 💡
-    url: /blog
-  - title: Custo-Benefício
-    description: Os melhores air fryer oven em cada faixa de preço, para todos os bolsos e necessidades.
-    icon: 💰
-    url: /blog
+  - number: "50+"
+    label: "Reviews Publicados"
+  - number: "2026"
+    label: "Conteúdo Atualizado"
+  - number: "100%"
+    label: "Conteúdo Original"
+
+socialProofTitle: "Marcas que Analisamos"
+clientLogos: []
+servicesTitle: "O Que Você Vai Encontrar"
+servicesSubtitle: "Conteúdo completo sobre air fryer oven para ajudar na sua decisão de compra"
+services: []
