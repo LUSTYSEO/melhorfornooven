@@ -77,6 +77,10 @@ const secondaryRGB = hexToRgb(secondaryColor);
 		<title>{title}</title>
         <meta name="description" content={description} />
 
+        {Astro.url.pathname === '/' && (
+          <link rel="preload" href="/wp-content/uploads/2026/07/hero-home-air-fryer-oven.webp" as="image" type="image/webp" />
+        )}
+
         <meta property="og:type" content="website" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
