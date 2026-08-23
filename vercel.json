@@ -1,0 +1,25 @@
+{
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/airfrier-mondial-12l-analogica",
+      "destination": "/airfryer-mondial-12l-analogica",
+      "permanent": true
+    },
+    {
+      "source": "/bella-cuccina-oven-bcfr02",
+      "destination": "/bella-cucina-oven-bcfr02",
+      "permanent": true
+    },
+    {
+      "source": "/elextrolux-eaf20",
+      "destination": "/electrolux-eaf20",
+      "permanent": true
+    },
+    {
+      "source": "/airfryer-philco-40-litros-pfe40l",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
+}
