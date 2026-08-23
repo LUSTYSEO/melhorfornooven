@@ -2,18 +2,13 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/como-usar-sua-air-fryer-oven-o-guia-completo-para-iniciantes",
+      "destination": "/como-usar-air-fryer-oven",
+      "permanent": true
+    },
+    {
       "source": "/airfrier-mondial-12l-analogica",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/airfrier-mondial-121-analogica",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/airfryer-mondial-12l-analogica",
-      "destination": "/",
+      "destination": "/airfryer-mondial-12l-analogica",
       "permanent": true
     },
     {
@@ -22,18 +17,8 @@
       "permanent": true
     },
     {
-      "source": "/bella-cucina-oven-bcfr02",
-      "destination": "/",
-      "permanent": true
-    },
-    {
       "source": "/elextrolux-eaf20",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/electrolux-eaf20",
-      "destination": "/",
+      "destination": "/melhor-air-fryer-oven-electrolux",
       "permanent": true
     },
     {
