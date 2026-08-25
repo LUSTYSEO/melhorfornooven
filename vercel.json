@@ -25,6 +25,11 @@
       "source": "/airfryer-philco-40-litros-pfe40l",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/precisa-virar-os-alimentos-na-air-fryer-oven",
+      "destination": "/air-fryer-oven-precisa-virar-os-alimentos",
+      "permanent": true
     }
   ]
 }
