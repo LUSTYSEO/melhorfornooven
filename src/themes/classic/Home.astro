@@ -39,13 +39,20 @@ const categories   = homeData.categories   || [];
     <!-- ══════════════════════════════════════════════
          HERO — Foto de fundo + overlay + badge + stats
     ══════════════════════════════════════════════ -->
-    <section
-        class="mdc-hero"
-        style={`background-image: url('${homeData.heroImage || '/wp-content/uploads/2026/07/hero-home-air-fryer-oven.webp'}');`}
-    >
+    <section class="relative mdc-hero overflow-hidden">
+        <!-- Imagem do Hero otimizada carregando imediatamente -->
+        <img 
+            src={homeData.heroImage || '/wp-content/uploads/2026/07/hero-home-air-fryer-oven.webp'} 
+            alt="O guia definitivo de Air Fryer Oven no Brasil" 
+            loading="eager" 
+            fetchpriority="high" 
+            decoding="async"
+            class="absolute inset-0 w-full h-full object-cover -z-10"
+        />
+
         <div class="mdc-hero-overlay"></div>
 
-        <div class="mdc-hero-content w-full">
+        <div class="relative z-10 mdc-hero-content w-full">
             <div class="container mx-auto px-6 py-32 md:py-40">
                 <div class="max-w-3xl mx-auto text-center">
 
