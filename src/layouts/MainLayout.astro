@@ -30,6 +30,9 @@ const {
     preloadImage,
 } = Astro.props;
 
+// Detecta se estamos na Home para emitir o preload da imagem LCP apenas nesta rota
+const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
+
 const siteSettings = await getEntry('siteSettings', 'settings').catch(() => null);
 const siteConfig   = await readSiteSettings();
 const themeId = 'classic';
@@ -79,7 +82,7 @@ const secondaryRGB = hexToRgb(secondaryColor);
 		<title>{title}</title>
         <meta name="description" content={description} />
 
-        {preloadImage && (
+        {preloadImage && isHome && (
           <link 
             rel="preload" 
             href={preloadImage} 
