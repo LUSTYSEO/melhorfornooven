@@ -94,125 +94,135 @@ const { gaId = '', fbPixelId = '' } = Astro.props;
         }
     }
 
-    // ── Inicia o CookieConsent ────────────────────────────────────────
-    CookieConsent.run({
-        // Armazena preferência no localStorage
-        cookie: {
-            name: 'cnx_cookie_consent',
-            expiresAfterDays: 365,
-        },
-
-        // Callbacks
-        onConsent: applyConsent,
-        onChange:  applyConsent,
-
-        // Configuração de categorias
-        categories: {
-            necessary: {
-                enabled: true,
-                readOnly: true,
+    // ── Inicia o CookieConsent com 2s de atraso após page load ───────
+    // Razão: evitar que o banner interfira no LCP (Largest Contentful Paint).
+    // O banner só é montado após a página ter renderizado completamente.
+    function initCookieConsent() {
+        CookieConsent.run({
+            // Armazena preferência no localStorage
+            cookie: {
+                name: 'cnx_cookie_consent',
+                expiresAfterDays: 365,
             },
-            analytics: {
-                enabled: false,
-                autoClear: {
-                    cookies: [
-                        { name: /^(_ga)/ },
-                        { name: '_gid' },
-                    ],
+
+            // Callbacks
+            onConsent: applyConsent,
+            onChange:  applyConsent,
+
+            // Configuração de categorias
+            categories: {
+                necessary: {
+                    enabled: true,
+                    readOnly: true,
                 },
-            },
-            marketing: {
-                enabled: false,
-                autoClear: {
-                    cookies: [
-                        { name: /^(_fbp|fr)/ },
-                    ],
-                },
-            },
-        },
-
-        // Textos em português
-        language: {
-            default: 'pt',
-            translations: {
-                pt: {
-                    consentModal: {
-                        title: '🍪 Usamos cookies',
-                        description:
-                            'Utilizamos cookies para melhorar sua experiência, analisar o tráfego do site e personalizar anúncios. ' +
-                            'Você pode aceitar todos, rejeitar os opcionais ou personalizar suas preferências.',
-                        acceptAllBtn: 'Aceitar todos',
-                        acceptNecessaryBtn: 'Apenas necessários',
-                        showPreferencesBtn: 'Personalizar',
-                        footer:
-                            '<a href="/privacidade" target="_blank">Política de Privacidade</a>',
+                analytics: {
+                    enabled: false,
+                    autoClear: {
+                        cookies: [
+                            { name: /^(_ga)/ },
+                            { name: '_gid' },
+                        ],
                     },
-                    preferencesModal: {
-                        title: 'Preferências de Cookies',
-                        acceptAllBtn: 'Aceitar todos',
-                        acceptNecessaryBtn: 'Apenas necessários',
-                        savePreferencesBtn: 'Salvar preferências',
-                        closeIconLabel: 'Fechar',
-                        serviceCounterLabel: 'Serviço|Serviços',
-                        sections: [
-                            {
-                                title: 'Cookies essenciais',
-                                description:
-                                    'Estes cookies são necessários para o funcionamento básico do site e não podem ser desativados.',
-                                linkedCategory: 'necessary',
-                            },
-                            {
-                                title: 'Analytics',
-                                description:
-                                    'Usamos o Google Analytics para entender como os visitantes interagem com o site. As informações são anonimizadas.',
-                                linkedCategory: 'analytics',
-                                cookieTable: {
-                                    headers: { name: 'Cookie', domain: 'Domínio', desc: 'Descrição' },
-                                    body: [
-                                        { name: '_ga', domain: location.hostname, desc: 'Google Analytics — identificador único de sessão (2 anos)' },
-                                        { name: '_gid', domain: location.hostname, desc: 'Google Analytics — sessão do dia (24h)' },
-                                    ],
-                                },
-                            },
-                            {
-                                title: 'Marketing',
-                                description:
-                                    'O Meta Pixel nos ajuda a medir a eficácia de campanhas publicitárias no Facebook e Instagram.',
-                                linkedCategory: 'marketing',
-                                cookieTable: {
-                                    headers: { name: 'Cookie', domain: 'Domínio', desc: 'Descrição' },
-                                    body: [
-                                        { name: '_fbp', domain: location.hostname, desc: 'Meta Pixel — rastreamento de conversões (3 meses)' },
-                                        { name: 'fr',   domain: 'facebook.com',   desc: 'Facebook — publicidade personalizada (3 meses)' },
-                                    ],
-                                },
-                            },
-                            {
-                                title: 'Mais informações',
-                                description:
-                                    'Em caso de dúvidas sobre nossa política de cookies, <a href="/contato">entre em contato</a>.',
-                            },
+                },
+                marketing: {
+                    enabled: false,
+                    autoClear: {
+                        cookies: [
+                            { name: /^(_fbp|fr)/ },
                         ],
                     },
                 },
             },
-        },
 
-        // Estilo do banner
-        guiOptions: {
-            consentModal: {
-                layout: 'bar',
-                position: 'bottom',
-                equalWeightButtons: false,
-                flipButtons: false,
+            // Textos em português
+            language: {
+                default: 'pt',
+                translations: {
+                    pt: {
+                        consentModal: {
+                            title: '🍪 Usamos cookies',
+                            description:
+                                'Utilizamos cookies para melhorar sua experiência, analisar o tráfego do site e personalizar anúncios. ' +
+                                'Você pode aceitar todos, rejeitar os opcionais ou personalizar suas preferências.',
+                            acceptAllBtn: 'Aceitar todos',
+                            acceptNecessaryBtn: 'Apenas necessários',
+                            showPreferencesBtn: 'Personalizar',
+                            footer:
+                                '<a href="/privacidade" target="_blank">Política de Privacidade</a>',
+                        },
+                        preferencesModal: {
+                            title: 'Preferências de Cookies',
+                            acceptAllBtn: 'Aceitar todos',
+                            acceptNecessaryBtn: 'Apenas necessários',
+                            savePreferencesBtn: 'Salvar preferências',
+                            closeIconLabel: 'Fechar',
+                            serviceCounterLabel: 'Serviço|Serviços',
+                            sections: [
+                                {
+                                    title: 'Cookies essenciais',
+                                    description:
+                                        'Estes cookies são necessários para o funcionamento básico do site e não podem ser desativados.',
+                                    linkedCategory: 'necessary',
+                                },
+                                {
+                                    title: 'Analytics',
+                                    description:
+                                        'Usamos o Google Analytics para entender como os visitantes interagem com o site. As informações são anonimizadas.',
+                                    linkedCategory: 'analytics',
+                                    cookieTable: {
+                                        headers: { name: 'Cookie', domain: 'Domínio', desc: 'Descrição' },
+                                        body: [
+                                            { name: '_ga', domain: location.hostname, desc: 'Google Analytics — identificador único de sessão (2 anos)' },
+                                            { name: '_gid', domain: location.hostname, desc: 'Google Analytics — sessão do dia (24h)' },
+                                        ],
+                                    },
+                                },
+                                {
+                                    title: 'Marketing',
+                                    description:
+                                        'O Meta Pixel nos ajuda a medir a eficácia de campanhas publicitárias no Facebook e Instagram.',
+                                    linkedCategory: 'marketing',
+                                    cookieTable: {
+                                        headers: { name: 'Cookie', domain: 'Domínio', desc: 'Descrição' },
+                                        body: [
+                                            { name: '_fbp', domain: location.hostname, desc: 'Meta Pixel — rastreamento de conversões (3 meses)' },
+                                            { name: 'fr',   domain: 'facebook.com',   desc: 'Facebook — publicidade personalizada (3 meses)' },
+                                        ],
+                                    },
+                                },
+                                {
+                                    title: 'Mais informações',
+                                    description:
+                                        'Em caso de dúvidas sobre nossa política de cookies, <a href="/contato">entre em contato</a>.',
+                                },
+                            ],
+                        },
+                    },
+                },
             },
-            preferencesModal: {
-                layout: 'box',
-                position: 'right',
-                equalWeightButtons: false,
-                flipButtons: false,
+
+            // Estilo do banner
+            guiOptions: {
+                consentModal: {
+                    layout: 'bar',
+                    position: 'bottom',
+                    equalWeightButtons: false,
+                    flipButtons: false,
+                },
+                preferencesModal: {
+                    layout: 'box',
+                    position: 'right',
+                    equalWeightButtons: false,
+                    flipButtons: false,
+                },
             },
-        },
+        });
+    }
+
+    // Aguarda o evento 'load' (toda a página + recursos carregados) e
+    // só então inicia o banner após 2000ms — garantindo LCP sem interferência.
+    window.addEventListener('load', () => {
+        setTimeout(initCookieConsent, 2000);
     });
 </script>
 
