@@ -20,12 +20,14 @@ interface Props {
     title?: string;
     description?: string;
     ogImage?: string;
+    preloadImage?: string;
 }
 
 const { 
     title = "Meu Site",
     description = "Bem-vindo ao meu site",
     ogImage = "/images/og-default.png",
+    preloadImage,
 } = Astro.props;
 
 const siteSettings = await getEntry('siteSettings', 'settings').catch(() => null);
@@ -77,10 +79,10 @@ const secondaryRGB = hexToRgb(secondaryColor);
 		<title>{title}</title>
         <meta name="description" content={description} />
 
-        {Astro.url.pathname === '/' && (
+        {preloadImage && (
           <link 
             rel="preload" 
-            href="/wp-content/uploads/2026/07/hero-home-air-fryer-oven.webp" 
+            href={preloadImage} 
             as="image" 
             type="image/webp" 
             fetchpriority="high" 

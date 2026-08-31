@@ -226,7 +226,7 @@ const { gaId = '', fbPixelId = '' } = Astro.props;
         --cc-modal-transition-duration: 0.2s;
 
         /* Cores base — dark mode (alto contraste) */
-        --cc-bg: #1a1a1a;
+        --cc-bg: #0a0a0a;
         --cc-primary-color: #c084fc;
         --cc-secondary-color: #cbd5e1;
         --cc-text: #f8fafc;
@@ -242,12 +242,12 @@ const { gaId = '', fbPixelId = '' } = Astro.props;
         --cc-btn-primary-hover-border-color: #c084fc;
 
         /* Botão secundário */
-        --cc-btn-secondary-bg: rgba(255,255,255,0.08);
+        --cc-btn-secondary-bg: rgba(255,255,255,0.1);
         --cc-btn-secondary-color: #f1f5f9;
-        --cc-btn-secondary-border-color: rgba(255,255,255,0.25);
-        --cc-btn-secondary-hover-bg: rgba(255,255,255,0.15);
+        --cc-btn-secondary-border-color: #e2e8f0;
+        --cc-btn-secondary-hover-bg: rgba(255,255,255,0.18);
         --cc-btn-secondary-hover-color: #ffffff;
-        --cc-btn-secondary-hover-border-color: rgba(255,255,255,0.4);
+        --cc-btn-secondary-hover-border-color: #ffffff;
 
         /* Toggle */
         --cc-toggle-on-bg: #a855f7;
@@ -258,7 +258,38 @@ const { gaId = '', fbPixelId = '' } = Astro.props;
         --cc-overlay-bg: rgba(0,0,0,0.65);
     }
 
-    /* Links dentro do banner com alto contraste e sublinhado */
+    /* Forçar cores de acessibilidade de alto contraste contra estilos dinâmicos injetados */
+    #cookie-consent-banner, 
+    .cookie-consent-banner,
+    [data-cookie-consent],
+    #cc-main,
+    #cc-main .cm,
+    #cc-main .pm {
+        background-color: #0a0a0a !important;
+        color: #f8fafc !important;
+    }
+    
+    /* Forçar contraste nos botões secundários do banner */
+    .cookie-consent-banner button:not(.primary),
+    #cookie-consent-banner button:not(.primary),
+    #cc-main .cm__btn--secondary,
+    #cc-main .pm__btn--secondary,
+    #cc-main button:not(.cm__btn--primary):not(.cm__btn[data-role="all"]) {
+        color: #f1f5f9 !important;
+        border-color: #e2e8f0 !important;
+        background-color: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    #cc-main .cm__btn--primary,
+    #cc-main .cm__btn[data-role="all"] {
+        background-color: #9333ea !important;
+        color: #ffffff !important;
+        border-color: #a855f7 !important;
+    }
+
+    /* Forçar contraste no link de política */
+    .cookie-consent-banner a,
+    #cookie-consent-banner a,
     #cc-main a {
         color: #d8b4fe !important;
         text-decoration: underline !important;

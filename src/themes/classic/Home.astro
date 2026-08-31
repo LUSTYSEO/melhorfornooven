@@ -27,6 +27,7 @@ const { homeData, latestPosts, blogPermalinkStructure = 'postname', blogUrlPrefi
 const heroStats    = homeData.heroStats    || [];
 const benefits     = homeData.benefits     || [];
 const categories   = homeData.categories   || [];
+const heroImage    = homeData.heroImage    || '/wp-content/uploads/2026/07/hero-home-air-fryer-oven.webp';
 ---
 
 <MainLayout
@@ -34,6 +35,7 @@ const categories   = homeData.categories   || [];
         ? `${homeData.heroTitle} ${homeData.heroTitleHighlight || ''} - Melhor Forno Oven`
         : 'Melhor Air Fryer Oven do Brasil — Reviews e Guias de Compra'}
     description={homeData.heroSubtitle || 'Reviews honestos, receitas testadas e guias de compra completos para você escolher o melhor air fryer oven do mercado.'}
+    preloadImage={heroImage}
 >
 
     <!-- ══════════════════════════════════════════════
@@ -42,7 +44,7 @@ const categories   = homeData.categories   || [];
     <section class="relative mdc-hero overflow-hidden">
         <!-- Imagem do Hero otimizada carregando imediatamente -->
         <img 
-            src={homeData.heroImage || '/wp-content/uploads/2026/07/hero-home-air-fryer-oven.webp'} 
+            src={heroImage} 
             alt="O guia definitivo de Air Fryer Oven no Brasil" 
             loading="eager" 
             fetchpriority="high" 
