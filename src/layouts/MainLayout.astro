@@ -78,6 +78,14 @@ const secondaryRGB = hexToRgb(secondaryColor);
 		<title>{title}</title>
         <meta name="description" content={description} />
 
+        <link 
+          rel="preload" 
+          href="/_astro/inter-latin-400-normal.C38fXH4l.woff2" 
+          as="font" 
+          type="font/woff2" 
+          crossorigin 
+        />
+
         {(isHome || preloadImage) && (
           <link 
             rel="preload" 
