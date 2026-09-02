@@ -11,7 +11,6 @@
 
 import LocalHeader from '../themes/local/components/Header.astro';
 import LocalFooter from '../themes/local/components/Footer.astro';
-import CookieConsent from '../components/CookieConsent.astro';
 import { readSingleton } from '../utils/singleton-utils';
 import { getSiteContactInfo } from '../utils/site-contact';
 import { readSiteSettings } from '../utils/read-site-settings';
@@ -49,9 +48,6 @@ const pathname      = Astro.url.pathname.replace(/\/$/, '') || '/';
 const canonicalHref = canonicalBase
     ? `${canonicalBase.replace(/\/$/, '')}${pathname === '/' ? '' : pathname}`
     : Astro.url.origin + pathname;
-const pixelSettings = await readSingleton('pixels', themeId).catch(() => null);
-const gaId     = pixelSettings?.googleAnalyticsId || '';
-const fbPixelId = pixelSettings?.facebookPixelId  || '';
 
 const company  = localData?.companyName    || '';
 const phone    = contact.phone             || '';
@@ -107,8 +103,6 @@ const schema = {
     {extraSchemas.map(s => (
         <script type="application/ld+json" set:html={JSON.stringify(s)} />
     ))}
-
-    <!-- GA e Meta Pixel injetados via CookieConsent -->
 
     <style is:global>
         :root {
@@ -174,7 +168,5 @@ const schema = {
     </main>
 
     <LocalFooter />
-
-    <CookieConsent gaId={gaId} fbPixelId={fbPixelId} />
 </body>
 </html>
