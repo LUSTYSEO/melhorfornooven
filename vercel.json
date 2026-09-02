@@ -30,6 +30,11 @@
       "source": "/precisa-virar-os-alimentos-na-air-fryer-oven",
       "destination": "/air-fryer-oven-precisa-virar-os-alimentos",
       "permanent": true
+    },
+    {
+      "source": "/air-fryer-oven-com-espeto-giratorio",
+      "destination": "/melhor-air-fryer-oven-espeto-giratorio",
+      "permanent": true
     }
   ]
 }

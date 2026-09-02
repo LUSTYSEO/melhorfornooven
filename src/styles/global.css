@@ -699,3 +699,10 @@ html.light .custom-product-list th {
     border-top: 1px solid rgba(255,255,255,0.06);
     border-bottom: 1px solid rgba(255,255,255,0.06);
 }
+
+/* Forçar conformidade WCAG AAA em todos os textos secundários e datas */
+.text-slate-400, .text-gray-400, .text-neutral-400,
+.text-slate-500, .text-gray-500, .text-neutral-500 {
+  color: #cbd5e1 !important; /* Slate-300: Contraste superior a 11:1 sobre preto */
+}
+

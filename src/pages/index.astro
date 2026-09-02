@@ -22,13 +22,19 @@ const home = siteMode !== 'local'
     ? await readSingleton('home', 'classic') || {}
     : null;
 
+// Posts pilares comerciais exibidos na Home na ordem estratégica
+const featuredSlugs = [
+    'melhor-air-fryer-oven',
+    'air-fryer-12l-qual-a-melhor',
+    'melhor-air-fryer-oven-espeto-giratorio',
+];
+
+const allPosts = siteMode !== 'local' ? await getCollection('posts') : [];
+
 const latestPosts = siteMode !== 'local'
-    ? await getCollection('posts').then((posts: any[]) =>
-        posts
-            .filter((p: any) => p.data.publishedDate)
-            .sort((a: any, b: any) => new Date(b.data.publishedDate).getTime() - new Date(a.data.publishedDate).getTime())
-            .slice(0, 9)
-      )
+    ? featuredSlugs
+        .map(slug => allPosts.find((p: any) => (p.data.slug === slug || p.id === slug || p.id === `${slug}.mdoc` || p.id === `${slug}.md`)))
+        .filter(Boolean)
     : [];
 
 const blogPermalinkStructure = (settings?.data?.blogPermalinkStructure as import('../utils/blog-permalink').BlogPermalinkStructure) || 'postname';

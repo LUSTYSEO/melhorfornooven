@@ -378,9 +378,9 @@ const heroImage    = homeData.heroImage    || '/wp-content/uploads/2026/07/hero-
                                 <h3 class="font-bold text-base mb-3 leading-snug line-clamp-2 group-hover:text-primary transition-colors" style="color: var(--blog-text);">
                                     {post.data.title}
                                 </h3>
-                                <div class="flex items-center justify-between text-xs" style="color: var(--blog-text-subtle);">
+                                <div class="flex items-center justify-between text-xs text-slate-300" style="color: var(--blog-text-subtle);">
                                     {post.data.publishedDate && (
-                                        <span>
+                                        <span class="text-slate-300">
                                             {new Date(post.data.publishedDate).toLocaleDateString('pt-BR', {
                                                 day: '2-digit', month: 'short', year: 'numeric'
                                             })}
