@@ -52,7 +52,8 @@ const heroImage    = homeData.heroImage    || '/wp-content/uploads/2026/07/hero-
             class="absolute inset-0 w-full h-full object-cover -z-20"
         />
 
-        <div class="mdc-hero-overlay"></div>
+        <!-- Gradiente elegante: foto visível no topo, escurece suavemente para baixo -->
+        <div class="absolute inset-0 bg-gradient-to-b from-neutral-950/90 via-neutral-950/70 to-neutral-950 -z-10"></div>
 
         <div class="relative z-10 mdc-hero-content w-full">
             <div class="container mx-auto px-6 py-32 md:py-40">
@@ -223,7 +224,7 @@ const heroImage    = homeData.heroImage    || '/wp-content/uploads/2026/07/hero-
                     </h2>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 max-w-6xl mx-auto">
                     {categories.map((cat: any) => (
                         <a href={cat.url || '/blog'} class="mdc-cat-card">
                             <img
