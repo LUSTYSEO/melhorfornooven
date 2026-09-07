@@ -43,7 +43,6 @@ export interface PostFile {
 }
 
 const POSTS_DIR = path.resolve('./src/content/posts');
-const PAGES_DIR = path.resolve('./src/content/pages');
 const DELETED_DIR = path.join(POSTS_DIR, '_deleted');
 
 /**
@@ -54,21 +53,12 @@ export function slugToFilename(slug: string): string {
 }
 
 /**
- * Lê um arquivo de post e retorna dados parseados.
- * Procura primeiro em posts/, depois em pages/ como fallback.
+ * Lê um arquivo de post e retorna dados parseados
  */
 export async function readPost(slug: string): Promise<PostFile | null> {
     try {
         const filename = slugToFilename(slug);
-        let filePath = path.join(POSTS_DIR, filename);
-        
-        try {
-            await fs.access(filePath);
-        } catch {
-            // Fallback: tentar em pages/
-            filePath = path.join(PAGES_DIR, filename);
-        }
-        
+        const filePath = path.join(POSTS_DIR, filename);
         const fileContent = await fs.readFile(filePath, 'utf-8');
         const parsed = matter(fileContent);
         

@@ -11,6 +11,7 @@
 
 import LocalHeader from '../themes/local/components/Header.astro';
 import LocalFooter from '../themes/local/components/Footer.astro';
+import CookieConsent from '../components/CookieConsent.astro';
 import { readSingleton } from '../utils/singleton-utils';
 import { getSiteContactInfo } from '../utils/site-contact';
 import { readSiteSettings } from '../utils/read-site-settings';
@@ -48,6 +49,9 @@ const pathname      = Astro.url.pathname.replace(/\/$/, '') || '/';
 const canonicalHref = canonicalBase
     ? `${canonicalBase.replace(/\/$/, '')}${pathname === '/' ? '' : pathname}`
     : Astro.url.origin + pathname;
+const pixelSettings = await readSingleton('pixels', themeId).catch(() => null);
+const gaId     = pixelSettings?.googleAnalyticsId || '';
+const fbPixelId = pixelSettings?.facebookPixelId  || '';
 
 const company  = localData?.companyName    || '';
 const phone    = contact.phone             || '';
@@ -87,8 +91,8 @@ const schema = {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="canonical" href={`https://melhorfornooven.com.br${Astro.url.pathname.replace(/\/$/, '')}`} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalHref} />
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta property="og:type" content="website" />
@@ -103,6 +107,8 @@ const schema = {
     {extraSchemas.map(s => (
         <script type="application/ld+json" set:html={JSON.stringify(s)} />
     ))}
+
+    <!-- GA e Meta Pixel injetados via CookieConsent -->
 
     <style is:global>
         :root {
@@ -149,16 +155,6 @@ const schema = {
             --blog-surface-hover: #334155;
         }
     </style>
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XBFFLWRHF1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-XBFFLWRHF1');
-    </script>
 </head>
 <body class="font-sans antialiased min-h-screen flex flex-col">
     <LocalHeader />
@@ -168,5 +164,7 @@ const schema = {
     </main>
 
     <LocalFooter />
+
+    <CookieConsent gaId={gaId} fbPixelId={fbPixelId} />
 </body>
 </html>
