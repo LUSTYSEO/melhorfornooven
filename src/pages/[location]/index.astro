@@ -11,6 +11,19 @@ import LocalLayout from '../../layouts/LocalLayout.astro';
 import { readLocation } from '../../utils/location-utils';
 import { listServices } from '../../utils/service-utils';
 import { readSingleton } from '../../utils/singleton-utils';
+import { getEntry, getCollection } from 'astro:content';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const settings = await getEntry('siteSettings', 'settings').catch(() => null);
+  if (settings?.data?.siteMode !== 'local') return [];
+
+  const locations = await getCollection('locations').catch(() => []);
+  return locations.map(loc => ({
+    params: { location: loc.data?.slug || loc.id },
+  }));
+}
 
 const { location: locationSlug } = Astro.params;
 const locationFile = await readLocation(locationSlug as string);

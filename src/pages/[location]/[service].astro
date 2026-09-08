@@ -20,6 +20,15 @@ import { readNicho } from '../../utils/niche-utils';
 import { readSingleton } from '../../utils/singleton-utils';
 import { getSiteContactInfo } from '../../utils/site-contact';
 import LocationServicePage from '../../themes/local/LocationServicePage.astro';
+import { getEntry } from 'astro:content';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const settings = await getEntry('siteSettings', 'settings').catch(() => null);
+  if (settings?.data?.siteMode !== 'local') return [];
+  return [];
+}
 
 const { location: locationSlug, service: serviceSlug } = Astro.params;
 

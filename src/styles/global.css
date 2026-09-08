@@ -282,6 +282,9 @@ html.light .prose-invert {
 /* ==========================================================================
    PADRÃO GLOBAL: TABELA COMPARATIVA DE ALTO CONTRASTE (FUNDO BRANCO)
    ========================================================================== */
+/* ==========================================================================
+   PADRÃO GLOBAL: TABELA COMPARATIVA DE ALTO CONTRASTE (FUNDO BRANCO)
+   ========================================================================== */
 .custom-product-list {
   margin: 2rem 0;
   overflow-x: auto;
@@ -313,14 +316,34 @@ html.light .prose-invert {
   border: none;
 }
 
-/* Linhas e Células da Tabela */
+.custom-product-list th * {
+  color: #ffffff !important;
+}
+
+/* Linhas e Células da Tabela - PRETO E ALTO CONTRASTE */
 .custom-product-list td {
   padding: 1rem;
   vertical-align: middle;
   border-bottom: 1px solid #e2e8f0 !important;
-  color: #1e293b !important;
+  color: #0f172a !important;
   font-size: 0.925rem;
   line-height: 1.5;
+}
+
+/* Forçar todo texto, negrito, span e parágrafo dentro do corpo da tabela a ser PRETO (#0f172a) */
+.custom-product-list td,
+.custom-product-list td *,
+.custom-product-list td strong,
+.custom-product-list td b,
+.custom-product-list td p,
+.custom-product-list td span {
+  color: #0f172a !important;
+}
+
+.custom-product-list td strong,
+.custom-product-list td b {
+  font-weight: 700 !important;
+  color: #0f172a !important;
 }
 
 /* Linhas Alternadas para Facilitar a Leitura */
@@ -343,14 +366,8 @@ html.light .prose-invert {
   border-radius: 0.5rem;
 }
 
-/* Destaque das Estrelas de Avaliação */
-.custom-product-list td:has(★),
-.custom-product-list td {
-  color: #1e293b;
-}
-
 /* Botão de Compra Automático dentro da Tabela */
-.custom-product-list a {
+.custom-product-list td a {
   display: inline-block;
   background: linear-gradient(135deg, #16a34a 0%, #15803d 100%) !important; /* Verde conversão */
   color: #ffffff !important;
@@ -364,10 +381,136 @@ html.light .prose-invert {
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.custom-product-list a:hover {
+.custom-product-list td a * {
+  color: #ffffff !important;
+}
+
+.custom-product-list td a:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 12px -1px rgba(22, 163, 74, 0.45);
   background: linear-gradient(135deg, #15803d 0%, #166534 100%) !important;
+  color: #ffffff !important;
+}
+
+/* ==========================================================================
+   PADRÃO GLOBAL: CARD DE ARTIGO PILAR / CTA DE LINK JUICE INTERNO
+   ========================================================================== */
+.pillar-cta-card {
+  margin: 2.5rem 0;
+  padding: 1.5rem 1.75rem;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%);
+  border: 1px solid rgba(249, 115, 22, 0.4);
+  border-left: 5px solid #f97316;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 0 15px -3px rgba(249, 115, 22, 0.12);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.pillar-cta-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(249, 115, 22, 0.75);
+  box-shadow: 0 14px 30px -5px rgba(0, 0, 0, 0.5), 0 0 25px -3px rgba(249, 115, 22, 0.25);
+}
+
+.pillar-cta-card .pillar-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #f97316;
+  background: rgba(249, 115, 22, 0.12);
+  border: 1px solid rgba(249, 115, 22, 0.3);
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  width: fit-content;
+}
+
+.pillar-cta-card .pillar-title,
+.pillar-cta-card h3.pillar-title,
+.pillar-cta-card h4.pillar-title {
+  margin: 0 !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  line-height: 1.4 !important;
+  font-family: 'Outfit', 'Inter', sans-serif !important;
+}
+
+.pillar-cta-card .pillar-desc,
+.pillar-cta-card p.pillar-desc {
+  margin: 0 !important;
+  font-size: 0.95rem !important;
+  color: #cbd5e1 !important;
+  line-height: 1.6 !important;
+}
+
+.pillar-cta-card .pillar-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.35rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 0.925rem !important;
+  text-decoration: none !important;
+  border-radius: 0.65rem;
+  width: fit-content;
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.35);
+  transition: all 0.2s ease;
+}
+
+.pillar-cta-card .pillar-btn:hover {
+  background: linear-gradient(135deg, #fb923c 0%, #f97316 100%);
+  transform: translateX(4px);
+  box-shadow: 0 6px 18px rgba(249, 115, 22, 0.5);
+  text-decoration: none !important;
+  color: #ffffff !important;
+}
+
+/* ==========================================================================
+   BLOCKQUOTES MODERNOS (TRANSFORMAÇÃO EM MICRO-CARDS LEVES)
+   ========================================================================== */
+.prose blockquote {
+  font-style: normal !important;
+  background: rgba(30, 41, 59, 0.6) !important;
+  border-left: 4px solid #f97316 !important;
+  border-radius: 0.75rem !important;
+  padding: 1rem 1.35rem !important;
+  margin: 1.75rem 0 !important;
+  color: #e2e8f0 !important;
+  box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.2) !important;
+}
+
+.prose blockquote p {
+  margin: 0.25rem 0 !important;
+  color: #e2e8f0 !important;
+}
+
+.prose blockquote strong {
+  color: #ffffff !important;
+}
+
+.prose blockquote a {
+  color: #fb923c !important;
+  font-weight: 700 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+}
+
+.prose blockquote a:hover {
+  color: #fdba74 !important;
 }
 
 /* ── MESTRE-STYLE DESIGN SYSTEM ───────────────────────────────────────────── */

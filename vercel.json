@@ -2,6 +2,11 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/air-fryer-oven",
+      "destination": "/melhor-air-fryer-oven",
+      "permanent": true
+    },
+    {
       "source": "/como-usar-sua-air-fryer-oven-o-guia-completo-para-iniciantes",
       "destination": "/como-usar-air-fryer-oven",
       "permanent": true
