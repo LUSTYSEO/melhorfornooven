@@ -40,6 +40,21 @@
       "source": "/air-fryer-oven-com-espeto-giratorio",
       "destination": "/melhor-air-fryer-oven-espeto-giratorio",
       "permanent": true
+    },
+    {
+      "source": "/politica-de-privacidade",
+      "destination": "/privacidade",
+      "permanent": true
+    },
+    {
+      "source": "/category/:path*",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/:slug*/feed",
+      "destination": "/:slug*",
+      "permanent": true
     }
   ]
 }
