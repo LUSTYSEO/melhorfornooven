@@ -1,0 +1,140 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  thumbnail?: string;
+  publishedDate?: string | Date;
+  updatedDate?: string | Date;
+  category?: string;
+  type?: 'website' | 'article';
+}
+
+const {
+  title,
+  description,
+  thumbnail,
+  publishedDate,
+  updatedDate,
+  category = 'guias-de-compra',
+  type = 'website'
+} = Astro.props;
+
+const siteUrl = 'https://melhorfornooven.com.br';
+const canonicalUrl = `${siteUrl}${Astro.url.pathname.replace(/\/$/, '')}`;
+const fullImageUrl = thumbnail 
+  ? (thumbnail.startsWith('http') ? thumbnail : `${siteUrl}${thumbnail}`)
+  : `${siteUrl}/wp-content/uploads/2026/07/hero-home-air-fryer-oven.webp`;
+
+// Formatação de datas ISO
+const datePublishedISO = publishedDate ? new Date(publishedDate).toISOString() : undefined;
+const dateModifiedISO = updatedDate ? new Date(updatedDate).toISOString() : datePublishedISO;
+
+// Montagem do JSON-LD Schema
+const schemaData = type === 'article' ? {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      "name": "Melhor Forno Oven",
+      "url": siteUrl,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${siteUrl}/favicon.svg`
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": `${siteUrl}/#author`,
+      "name": "Isabela Dantas",
+      "url": `${siteUrl}/sobre-a-isabela`,
+      "image": "https://1.gravatar.com/avatar/5c9b4ae7bcc399f5aaef14650b16e954d6d2a791f36cbc4f77fc28f2f38dffa4?size=512",
+      "jobTitle": "Especialista em Eletrodomésticos e Fornos Air Fryer",
+      "sameAs": [
+        "https://www.linkedin.com/in/isabela-dantas-b079b0386",
+        "https://www.facebook.com/profile.php?id=61582131759490"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": `${canonicalUrl}/#article`,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`
+      },
+      "headline": title,
+      "description": description,
+      "image": fullImageUrl,
+      "datePublished": datePublishedISO,
+      "dateModified": dateModifiedISO,
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": canonicalUrl
+      },
+      "author": {
+        "@id": `${siteUrl}/#author`
+      },
+      "publisher": {
+        "@id": `${siteUrl}/#organization`
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}/#breadcrumb`,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": siteUrl
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": category.replace(/-/g, ' ').toUpperCase(),
+          "item": `${siteUrl}/blog`
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": title,
+          "item": canonicalUrl
+        }
+      ]
+    }
+  ]
+} : {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteUrl}/#website`,
+  "url": siteUrl,
+  "name": "Melhor Forno Oven",
+  "description": description,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Melhor Forno Oven",
+    "url": siteUrl
+  }
+};
+---
+
+<!-- Meta Robots Avançada para Google Discover e Rich Snippets -->
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+<!-- Open Graph / Redes Sociais -->
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:type" content={type === 'article' ? 'article' : 'website'} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:site_name" content="Melhor Forno Oven" />
+<meta property="og:image" content={fullImageUrl} />
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={fullImageUrl} />
+
+<!-- Injeção do Schema Markup JSON-LD -->
+<script type="application/ld+json" set:html={JSON.stringify(schemaData)} />

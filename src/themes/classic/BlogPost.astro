@@ -21,9 +21,18 @@ interface Props {
 const { post, author, Content, themeId, layoutType = 'main', readingTimeMinutes } = Astro.props;
 const Layout = layoutType === 'local' ? LocalLayout : MainLayout;
 const pageTitle = post.data.metaTitle || post.data.title;
+const pageDescription = post.data.metaDescription || post.data.description;
+const pageImage = post.data.metaImage || post.data.thumbnail;
 ---
 
-<Layout title={pageTitle}>
+<Layout 
+    title={pageTitle}
+    description={pageDescription}
+    thumbnail={pageImage}
+    publishedDate={post.data.publishedDate}
+    category={post.data.category}
+    type="article"
+>
     
     <!-- HERO SECTION -->
     <section class="relative min-h-[50vh] flex items-center justify-center pt-24 md:pt-32 overflow-hidden">

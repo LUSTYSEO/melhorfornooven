@@ -11,6 +11,7 @@ import { readSingleton } from '../utils/singleton-utils';
 import { readSiteSettings } from '../utils/read-site-settings';
 import Header from '../themes/classic/components/Header.astro';
 import Footer from '../themes/classic/components/Footer.astro';
+import SEO from '../components/SEO.astro';
 import '../styles/global.css';
 import '@fontsource/inter';
 import '@fontsource/outfit';
@@ -20,6 +21,11 @@ interface Props {
     description?: string;
     ogImage?: string;
     preloadImage?: string;
+    thumbnail?: string;
+    publishedDate?: string | Date;
+    updatedDate?: string | Date;
+    category?: string;
+    type?: 'website' | 'article';
 }
 
 const { 
@@ -88,10 +94,15 @@ const secondaryRGB = hexToRgb(secondaryColor);
           />
         )}
 
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        {ogImage && <meta property="og:image" content={new URL(ogImage, Astro.url)} />}
+        <SEO 
+          title={Astro.props.title || "Melhor Forno Oven"} 
+          description={Astro.props.description || "O guia definitivo de Air Fryer Oven no Brasil"} 
+          thumbnail={Astro.props.thumbnail}
+          publishedDate={Astro.props.publishedDate}
+          updatedDate={Astro.props.updatedDate}
+          category={Astro.props.category}
+          type={Astro.props.type || (Astro.url.pathname === '/' ? 'website' : 'article')}
+        />
 
         <!-- Theme Engine: Injected Variables -->
         <style is:global define:vars={{ primaryRGB, secondaryRGB, borderRadius }}>
