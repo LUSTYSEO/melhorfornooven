@@ -120,13 +120,12 @@ const secondaryRGB = hexToRgb(secondaryColor);
 			@font-face { font-family: 'Outfit'; font-display: swap; }
 		</style>
 
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XBFFLWRHF1"></script>
-        <script>
+        <!-- Google Analytics via Partytown (Web Workers) -->
+        <script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-XBFFLWRHF1"></script>
+        <script type="text/partytown">
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-
           gtag('config', 'G-XBFFLWRHF1');
         </script>
 	</head>

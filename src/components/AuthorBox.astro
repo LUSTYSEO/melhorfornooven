@@ -1,0 +1,19 @@
+---
+import { Image } from 'astro:assets';
+import isabelaAvatar from '../assets/images/isabela-avatar.webp';
+---
+
+<div class="flex items-center gap-4">
+  <Image 
+    src={isabelaAvatar} 
+    alt="Isabela Dantas - Especialista em Eletrodomésticos" 
+    width={80} 
+    height={80} 
+    class="rounded-full object-cover border border-neutral-800"
+    format="webp"
+  />
+  <div>
+    <span class="font-semibold text-white">Isabela Dantas</span>
+    <p class="text-sm text-slate-400">Especialista em Fornos Oven e Fritadeiras</p>
+  </div>
+</div>

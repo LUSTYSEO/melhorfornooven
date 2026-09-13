@@ -1,0 +1,43 @@
+---
+// src/components/OptimizedImage.astro
+import { Image } from 'astro:assets';
+
+interface Props {
+  src: string | ImageMetadata;
+  alt: string;
+  width?: number;
+  height?: number;
+  className?: string;
+  loading?: "eager" | "lazy";
+}
+
+const { src, alt, width = 400, height = 300, className = "", loading = "lazy" } = Astro.props;
+
+// Verifica se é uma imagem local importada ou uma URL string (legada/externa)
+const isStringSrc = typeof src === 'string';
+---
+
+{isStringSrc ? (
+  // Se for string (ex: links legados do WordPress), renderizamos com atributos de segurança e clases de suporte,
+  // ou tratamos caso queira apontar para assets locais.
+  <img 
+    src={src} 
+    alt={alt} 
+    width={width} 
+    height={height} 
+    class={className} 
+    loading={loading} 
+    decoding="async" 
+  />
+) : (
+  // Se for asset local do Astro, ele otimiza automaticamente para WebP/AVIF no build!
+  <Image 
+    src={src} 
+    alt={alt} 
+    width={width} 
+    height={height} 
+    class={className} 
+    loading={loading} 
+    format="webp"
+  />
+)}
