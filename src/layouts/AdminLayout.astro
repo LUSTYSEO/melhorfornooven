@@ -75,8 +75,7 @@ const secondaryRGB = hexToRgb(secondaryColor);
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" type="image/png" href="/favicon.png" />
-        <link rel="canonical" href={`https://melhorfornooven.com.br${Astro.url.pathname.replace(/\/$/, '')}`} />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
         <meta name="description" content={description} />
@@ -102,16 +101,6 @@ const secondaryRGB = hexToRgb(secondaryColor);
                     html.classList.add(theme);
                 } catch (e) {}
             })();
-        </script>
-
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XBFFLWRHF1"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-XBFFLWRHF1');
         </script>
     </head>
     <body class="font-sans antialiased min-h-screen" style="background: var(--admin-bg); color: var(--admin-text);">

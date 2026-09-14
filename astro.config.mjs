@@ -4,7 +4,6 @@ import vercel from '@astrojs/vercel';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 import markdoc from '@astrojs/markdoc';
-import partytown from '@astrojs/partytown';
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,25 +15,7 @@ export default defineConfig({
             jsxRuntime: 'classic',
         }),
         tailwind(), 
-        markdoc({ allowHTML: true }),
-        partytown({
-            config: {
-                forward: ['dataLayer.push'],
-            },
-        }),
+        markdoc({ allowHTML: true })
     ],
-    // Otimizações de build — melhora PageSpeed (CSS blocking, LCP)
-    build: {
-        // Injeta todo CSS como <style> inline no HTML — elimina render-blocking resources
-        inlineStylesheets: 'always',
-    },
-    vite: {
-        build: {
-            cssMinify: 'esbuild',
-            cssCodeSplit: true,
-        },
-    },
     // Reset Trigger: 2026-02-07 11:40
 });
-
-
