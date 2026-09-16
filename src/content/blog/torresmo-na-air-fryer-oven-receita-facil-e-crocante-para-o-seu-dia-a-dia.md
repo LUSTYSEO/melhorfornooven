@@ -98,4 +98,4 @@ Sim, pré-aquecer a air fryer oven por cerca de 5 minutos ajuda a garantir uma c
 
 O ideal é temperar antes para que os sabores penetrem na pele durante o cozimento. Temperos adicionais podem ser aplicados depois para realçar o sabor, mas evite molhar para não perder a crocância.  
   
-Quer saber tudo antes de comprar ou simplesmente se tornar um expert no assunto? Não deixe de ler nosso guia definitivo: \[[+50 Receitas para Air Fryer Oven (Fáceis, Rápidas e Deliciosas](https://melhorfornooven.com.br/receitas-para-air-fryer-oven))\]!
+Quer saber tudo antes de comprar ou simplesmente se tornar um expert no assunto? Não deixe de ler nosso guia definitivo: [+50 Receitas para Air Fryer Oven (Fáceis, Rápidas e Deliciosas)](/receitas-para-air-fryer-oven)!
