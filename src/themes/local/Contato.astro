@@ -178,25 +178,6 @@ const waUrl    = whatsapp ? `https://wa.me/55${whatsapp}?text=${waMsg}` : '#';
         </div>
     </section>
 
-    <!-- GOOGLE MAP SECTION -->
-    {address && (
-        <section style="padding: 2rem 1.5rem; background: #f1f5f9;">
-            <div class="container mx-auto" style="max-width: 1000px;">
-                <div style="padding: 0.5rem; border-radius: 14px; background: #fff; border: 1px solid #e2e8f0; height: 400px; overflow: hidden;">
-                    <iframe 
-                        src={`https://maps.google.com/maps?q=${encodeURIComponent(address)}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
-                        width="100%" 
-                        height="100%" 
-                        style="border:0; border-radius: 10px;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade"
-                    ></iframe>
-                </div>
-            </div>
-        </section>
-    )}
-
     <!-- CTA WHATSAPP -->
     {waUrl !== '#' && (
         <section style="padding: 4rem 1.5rem; background: linear-gradient(135deg, #1e3a5f 0%, #1e40af 100%); text-align: center;">
