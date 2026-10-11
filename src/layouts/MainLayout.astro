@@ -26,6 +26,7 @@ interface Props {
     updatedDate?: string | Date;
     category?: string;
     type?: 'website' | 'article';
+    faqs?: Array<{ question: string; answer: string }>;
 }
 
 const { 
@@ -102,6 +103,7 @@ const secondaryRGB = hexToRgb(secondaryColor);
           updatedDate={Astro.props.updatedDate}
           category={Astro.props.category}
           type={Astro.props.type || (Astro.url.pathname === '/' ? 'website' : 'article')}
+          faqs={Astro.props.faqs}
         />
 
         <!-- Theme Engine: Injected Variables -->

@@ -7,6 +7,7 @@ interface Props {
   updatedDate?: string | Date;
   category?: string;
   type?: 'website' | 'article';
+  faqs?: Array<{ question: string; answer: string }>;
 }
 
 const {
@@ -16,7 +17,8 @@ const {
   publishedDate,
   updatedDate,
   category = 'guias-de-compra',
-  type = 'website'
+  type = 'website',
+  faqs = []
 } = Astro.props;
 
 const siteUrl = 'https://melhorfornooven.com.br';
@@ -101,7 +103,19 @@ const schemaData = type === 'article' ? {
           "item": canonicalUrl
         }
       ]
-    }
+    },
+    ...(faqs && faqs.length > 0 ? [{
+      "@type": "FAQPage",
+      "@id": `${canonicalUrl}/#faq`,
+      "mainEntity": faqs.map((f: { question: string; answer: string }) => ({
+        "@type": "Question",
+        "name": f.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.answer
+        }
+      }))
+    }] : [])
   ]
 } : {
   "@context": "https://schema.org",
