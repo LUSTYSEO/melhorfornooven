@@ -2,6 +2,11 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/:path+/",
+      "destination": "/:path",
+      "permanent": true
+    },
+    {
       "source": "/air-fryer-oven",
       "destination": "/melhor-air-fryer-oven",
       "permanent": true
