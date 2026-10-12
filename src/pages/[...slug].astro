@@ -21,12 +21,11 @@ export async function getStaticPaths() {
   if (prefix !== 'root') return [];
 
   const posts = await getCollection('posts');
-  const pages = await getCollection('pages');
   const structure = (settings?.data?.blogPermalinkStructure as BlogPermalinkStructure) || 'postname';
-  const allEntries = [...posts, ...pages];
-  return allEntries.map(entry => ({
-    params: { slug: buildPostPath({ ...entry, data: { ...entry.data, slug: entry.data.slug || entry.id } }, structure) },
-    props: { post: entry },
+
+  return posts.map(post => ({
+    params: { slug: buildPostPath({ ...post, data: { ...post.data, slug: post.data.slug || post.id } }, structure) },
+    props: { post },
   }));
 }
 

@@ -10,8 +10,6 @@
 import { listServices, readService } from '../../utils/service-utils';
 import { getPrincipalLocationSlug } from '../../utils/location-utils';
 
-export const prerender = true;
-
 export async function getStaticPaths() {
     const services = await listServices();
     return services.map(({ data }) => ({
