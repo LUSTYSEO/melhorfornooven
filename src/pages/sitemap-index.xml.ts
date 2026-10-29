@@ -67,8 +67,8 @@ ${stylesheet}
     const today = new Date().toISOString().slice(0, 10);
     const urls: string[] = [];
 
-    // Páginas estáticas
-    const staticPaths = ['/', '/blog', '/servicos', '/contato', '/sobre', '/lp1', '/curso-vendas'];
+    // Páginas estáticas (apenas páginas legítimas do site)
+    const staticPaths = ['/', '/blog', '/contato', '/sobre'];
     for (const p of staticPaths) {
         urls.push(urlNode(base, p, today));
     }
@@ -111,20 +111,24 @@ ${stylesheet}
                         urls.push(urlNode(base, `/${loc.data.slug}/${svc.data.slug}`, today));
                     }
                 }
-            } else if (activeServices.length > 0) {
-                for (const svc of activeServices) {
-                    urls.push(urlNode(base, `/servicos/${svc.data.slug}`, today));
-                }
             }
         } catch (e) {
             console.error('\x1b[31m✗ Erro ao coletar páginas locais para sitemap:\x1b[0m', e);
         }
     }
 
+    // Filtro de exclusão estrito contra páginas parasitas/órfãs fora do nicho
+    const excludedPatterns = [/^\/servicos(\/.*)?$/, /^\/lp1(\/.*)?$/, /^\/curso-vendas(\/.*)?$/];
+    const filteredUrls = urls.filter(entry => {
+        const match = entry.match(/<loc>(?:https?:\/\/[^\/]+)?(\/[^<]*)<\/loc>/);
+        const path = match ? match[1] : '';
+        return !excludedPatterns.some(pattern => pattern.test(path));
+    });
+
     const xml = `<?xml version="1.0" encoding="UTF-8"?>
 ${stylesheet}
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.join('\n')}
+${filteredUrls.join('\n')}
 </urlset>`;
 
     return new Response(xml, {
