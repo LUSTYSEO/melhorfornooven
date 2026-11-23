@@ -8,7 +8,6 @@
 
 import MainLayout from '../../layouts/MainLayout.astro';
 import LocalLayout from '../../layouts/LocalLayout.astro';
-import SiloLinks from '../../components/SiloLinks.astro';
 
 interface Props {
     post: any;
@@ -22,20 +21,9 @@ interface Props {
 const { post, author, Content, themeId, layoutType = 'main', readingTimeMinutes } = Astro.props;
 const Layout = layoutType === 'local' ? LocalLayout : MainLayout;
 const pageTitle = post.data.metaTitle || post.data.title;
-const pageDescription = post.data.metaDescription || post.data.description;
-const pageImage = post.data.metaImage || post.data.thumbnail;
 ---
 
-<Layout 
-    title={pageTitle}
-    description={pageDescription}
-    thumbnail={pageImage}
-    publishedDate={post.data.publishedDate}
-    updatedDate={post.data.updatedDate}
-    category={post.data.category}
-    type="article"
-    faqs={post.data.faqs}
->
+<Layout title={pageTitle}>
     
     <!-- HERO SECTION -->
     <section class="relative min-h-[50vh] flex items-center justify-center pt-24 md:pt-32 overflow-hidden">
@@ -80,10 +68,6 @@ const pageImage = post.data.metaImage || post.data.thumbnail;
                                     src={author.data.avatar} 
                                     alt={author.data.name} 
                                     class="w-12 h-12 rounded-full ring-2 ring-primary/30"
-                                    width="48"
-                                    height="48"
-                                    loading="lazy"
-                                    decoding="async"
                                 />
                             )}
                             <div class="text-left">
@@ -127,11 +111,7 @@ const pageImage = post.data.metaImage || post.data.thumbnail;
                             src={post.data.thumbnail || post.data.metaImage} 
                             alt={post.data.title}
                             class="w-full h-auto"
-                            width="1200"
-                            height="630"
-                            loading="eager"
-                            fetchpriority="high"
-                            decoding="async"
+                            loading="lazy"
                         />
                     </div>
                 )}
@@ -139,7 +119,6 @@ const pageImage = post.data.metaImage || post.data.thumbnail;
                 <article class="prose prose-invert prose-lg max-w-none prose-headings:font-heading prose-headings:font-bold prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-img:rounded-2xl prose-img:my-8">
                     <Content />
                 </article>
-                {post.data.slug && <SiloLinks slug={post.data.slug} />}
             </div>
         </div>
     </section>
@@ -156,15 +135,10 @@ const pageImage = post.data.metaImage || post.data.thumbnail;
                                     src={author.data.avatar} 
                                     alt={author.data.name} 
                                     class="w-24 h-24 rounded-full ring-4 ring-primary/30 shadow-xl"
-                                    width="96"
-                                    height="96"
-                                    loading="lazy"
-                                    decoding="async"
                                 />
                             )}
                             <div class="flex-1">
-                                {/* H2 — hierárquia correta: H1 é o título do post, a sequência pede H2 aqui */}
-                                <p class="text-2xl font-bold mb-2" style="color: var(--blog-text);">Escrito por {author.data.name}</p>
+                                <h3 class="text-2xl font-bold mb-2" style="color: var(--blog-text);">Escrito por {author.data.name}</h3>
                                 {author.data.role && (
                                     <p class="text-primary mb-4 font-semibold">{author.data.role}</p>
                                 )}
@@ -172,7 +146,7 @@ const pageImage = post.data.metaImage || post.data.thumbnail;
                                     <p class="text-lg mb-6 italic leading-relaxed" style="color: var(--blog-text-muted);">"{author.data.bio}"</p>
                                 )}
                                 <a 
-                                    href="/sobre-a-isabela" 
+                                    href={`/authors/${author.id}`} 
                                     class="inline-flex items-center gap-2 px-6 py-3 bg-primary/20 text-primary border border-primary/30 rounded-xl font-bold hover:bg-primary hover:text-white transition-all"
                                 >
                                     Ver perfil completo
