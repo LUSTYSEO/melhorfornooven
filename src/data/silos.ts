@@ -78,7 +78,7 @@ export const PILLARS: Record<string, Pillar> = {
     blurb: 'Philco, Mondial, Oster, Britânia e Electrolux frente a frente.',
     ctaAnchor: 'comparativo entre as marcas de air fryer oven',
     cta: 'Em dúvida entre as marcas? Veja o',
-    exists: false, // página nova ainda não criada: satélites apontam para o hub
+    exists: true,
   },
   receitas: {
     slug: 'receitas-para-air-fryer-oven',
