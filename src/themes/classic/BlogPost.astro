@@ -8,6 +8,7 @@
 
 import MainLayout from '../../layouts/MainLayout.astro';
 import LocalLayout from '../../layouts/LocalLayout.astro';
+import SiloLinks from '../../components/SiloLinks.astro';
 
 interface Props {
     post: any;
@@ -138,6 +139,7 @@ const pageImage = post.data.metaImage || post.data.thumbnail;
                 <article class="prose prose-invert prose-lg max-w-none prose-headings:font-heading prose-headings:font-bold prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-img:rounded-2xl prose-img:my-8">
                     <Content />
                 </article>
+                {post.data.slug && <SiloLinks slug={post.data.slug} />}
             </div>
         </div>
     </section>

@@ -1,0 +1,98 @@
+---
+/**
+ * SiloLinks.astro — bloco de links internos do silo (Hub → Pilares → Satélites).
+ * HTML estático, sem JS (mantém TBT 0). Usa apenas caminhos relativos e nenhum link de afiliado.
+ */
+import { getCollection } from 'astro:content';
+import { HUB, PILLARS, SATELLITES, pillarKeyBySlug, satellitesOf } from '../data/silos';
+
+interface Props {
+  slug: string;
+}
+const { slug } = Astro.props;
+
+const posts = await getCollection('posts');
+const titleOf = (s: string) => {
+  const p = posts.find((x) => (x.data.slug || x.id) === s);
+  return p ? (p.data.metaTitle || p.data.title) : s;
+};
+const exists = (s: string) => posts.some((x) => (x.data.slug || x.id) === s);
+
+let role: 'hub' | 'pillar' | 'satellite' | null = null;
+let pillarKey: string | undefined;
+
+if (slug === HUB.slug) {
+  role = 'hub';
+} else if ((pillarKey = pillarKeyBySlug(slug))) {
+  role = 'pillar';
+} else if (SATELLITES[slug]) {
+  role = 'satellite';
+  pillarKey = SATELLITES[slug];
+}
+
+const hubPillars = Object.values(PILLARS).filter((p) => p.exists && exists(p.slug));
+const siblings =
+  role === 'satellite' && pillarKey
+    ? satellitesOf(pillarKey).filter((s) => s !== slug && exists(s)).slice(0, 5)
+    : [];
+const children = role === 'pillar' && pillarKey ? satellitesOf(pillarKey).filter(exists) : [];
+const pillar = pillarKey ? PILLARS[pillarKey] : undefined;
+// Se o pilar do satélite ainda não existe, o link sobe para o hub.
+const target = pillar && pillar.exists && exists(pillar.slug) ? pillar : null;
+---
+
+{role === 'hub' && (
+  <aside class="silo-links mt-12 rounded-2xl p-6 md:p-8" style="border: 1px solid var(--blog-border);" aria-label="Guias por categoria">
+    <h2 class="text-2xl font-bold mb-2" style="color: var(--blog-text);">Guias por categoria</h2>
+    <p class="mb-6" style="color: var(--blog-text-muted);">Escolha o guia que combina com o que você procura em uma air fryer oven.</p>
+    <ul class="grid gap-4 md:grid-cols-2 list-none p-0 m-0">
+      {hubPillars.map((p) => (
+        <li class="m-0">
+          <a href={`/${p.slug}`} class="font-bold text-primary hover:underline">{p.anchor}</a>
+          <p class="text-sm mt-1" style="color: var(--blog-text-muted);">{p.blurb}</p>
+        </li>
+      ))}
+    </ul>
+  </aside>
+)}
+
+{role === 'pillar' && (
+  <aside class="silo-links mt-12 rounded-2xl p-6 md:p-8" style="border: 1px solid var(--blog-border);" aria-label="Guias relacionados">
+    {children.length > 0 && (
+      <>
+        <h2 class="text-2xl font-bold mb-4" style="color: var(--blog-text);">Guias relacionados</h2>
+        <ul class="grid gap-2 md:grid-cols-2 list-none p-0 m-0">
+          {children.map((s) => (
+            <li class="m-0"><a href={`/${s}`} class="text-primary hover:underline">{titleOf(s)}</a></li>
+          ))}
+        </ul>
+      </>
+    )}
+    <p class={children.length > 0 ? 'mt-6' : ''} style="color: var(--blog-text-muted);">
+      Quer ver todas as opções do mercado? Volte para o <a href={`/${HUB.slug}`} class="text-primary font-bold hover:underline">{HUB.ctaAnchor}</a>.
+    </p>
+  </aside>
+)}
+
+{role === 'satellite' && (
+  <aside class="silo-links mt-12 rounded-2xl p-6 md:p-8" style="border: 1px solid var(--blog-border);" aria-label="Próximo passo">
+    <p class="text-lg" style="color: var(--blog-text);">
+      <strong>Próximo passo:</strong>{' '}
+      {target ? (
+        <>{target.cta}{' '}<a href={`/${target.slug}`} class="text-primary font-bold hover:underline">{target.ctaAnchor}</a>.</>
+      ) : (
+        <>Quer comparar os modelos? Veja o <a href={`/${HUB.slug}`} class="text-primary font-bold hover:underline">{HUB.ctaAnchor}</a>.</>
+      )}
+    </p>
+    {siblings.length > 0 && (
+      <>
+        <h2 class="text-xl font-bold mt-6 mb-3" style="color: var(--blog-text);">Continue lendo</h2>
+        <ul class="grid gap-2 list-none p-0 m-0">
+          {siblings.map((s) => (
+            <li class="m-0"><a href={`/${s}`} class="text-primary hover:underline">{titleOf(s)}</a></li>
+          ))}
+        </ul>
+      </>
+    )}
+  </aside>
+)}
