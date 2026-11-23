@@ -31,32 +31,52 @@ const fullImageUrl = thumbnail
 const datePublishedISO = publishedDate ? new Date(publishedDate).toISOString() : undefined;
 const dateModifiedISO = updatedDate ? new Date(updatedDate).toISOString() : datePublishedISO;
 
+// Entidades globais (presentes em TODAS as páginas): site, organização e autora.
+// A autora tem uma única página canônica (/sobre-a-isabela) e os perfis públicos em sameAs.
+const websiteNode = {
+  "@type": "WebSite",
+  "@id": `${siteUrl}/#website`,
+  "url": siteUrl,
+  "name": "Melhor Forno Oven",
+  "inLanguage": "pt-BR",
+  "publisher": { "@id": `${siteUrl}/#organization` }
+};
+const organizationNode = {
+  "@type": "Organization",
+  "@id": `${siteUrl}/#organization`,
+  "name": "Melhor Forno Oven",
+  "url": siteUrl,
+  "logo": {
+    "@type": "ImageObject",
+    "url": `${siteUrl}/favicon.png`
+  },
+  "founder": { "@id": `${siteUrl}/#author` }
+};
+const personNode = {
+  "@type": "Person",
+  "@id": `${siteUrl}/#author`,
+  "name": "Isabela Dantas",
+  "url": `${siteUrl}/sobre-a-isabela`,
+  "mainEntityOfPage": `${siteUrl}/sobre-a-isabela`,
+  "image": `${siteUrl}/images/isabela-avatar.webp`,
+  "jobTitle": "Especialista em Eletrodomésticos e Fornos Air Fryer",
+  "worksFor": { "@id": `${siteUrl}/#organization` },
+  "knowsAbout": ["Air fryer oven", "Fornos air fryer", "Eletrodomésticos de bancada"],
+  "sameAs": [
+    "https://www.linkedin.com/in/isabela-dantas-b079b0386/",
+    "https://www.facebook.com/profile.php?id=61582131759490",
+    "https://br.pinterest.com/isabeladantasairfryer/",
+    "https://gravatar.com/otternoisilye512264136"
+  ]
+};
+
 // Montagem do JSON-LD Schema
 const schemaData = type === 'article' ? {
   "@context": "https://schema.org",
   "@graph": [
-    {
-      "@type": "Organization",
-      "@id": `${siteUrl}/#organization`,
-      "name": "Melhor Forno Oven",
-      "url": siteUrl,
-      "logo": {
-        "@type": "ImageObject",
-        "url": `${siteUrl}/favicon.svg`
-      }
-    },
-    {
-      "@type": "Person",
-      "@id": `${siteUrl}/#author`,
-      "name": "Isabela Dantas",
-      "url": `${siteUrl}/sobre-a-isabela`,
-      "image": `${siteUrl}/images/isabela-avatar.webp`,
-      "jobTitle": "Especialista em Eletrodomésticos e Fornos Air Fryer",
-      "sameAs": [
-        "https://www.linkedin.com/in/isabela-dantas-b079b0386",
-        "https://www.facebook.com/profile.php?id=61582131759490"
-      ]
-    },
+    organizationNode,
+    personNode,
+    websiteNode,
     {
       "@type": "BlogPosting",
       "@id": `${canonicalUrl}/#article`,
@@ -119,16 +139,7 @@ const schemaData = type === 'article' ? {
   ]
 } : {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "@id": `${siteUrl}/#website`,
-  "url": siteUrl,
-  "name": "Melhor Forno Oven",
-  "description": description,
-  "publisher": {
-    "@type": "Organization",
-    "name": "Melhor Forno Oven",
-    "url": siteUrl
-  }
+  "@graph": [websiteNode, organizationNode, personNode]
 };
 ---
 

@@ -31,11 +31,14 @@ columns:
       - label: Aviso de Afiliado
         href: /aviso-de-afiliado
 socialLinks:
+  - platform: LinkedIn
+    url: https://www.linkedin.com/in/isabela-dantas-b079b0386/
+    icon: 💼
   - platform: Facebook
     url: https://www.facebook.com/profile.php?id=61582131759490
     icon: 👥
   - platform: Pinterest
-    url: https://www.pinterest.com/isabeladantasairfryer
+    url: https://br.pinterest.com/isabeladantasairfryer/
     icon: 📌
   - platform: Tumblr
     url: https://www.tumblr.com/blog/isabeladantasairfryer

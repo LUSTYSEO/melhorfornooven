@@ -13,6 +13,7 @@ import { readSiteSettings } from '../utils/read-site-settings';
 import { listLocations } from '../utils/location-utils';
 import { listServices } from '../utils/service-utils';
 import { getPostUrl, type BlogPermalinkStructure, type BlogUrlPrefix } from '../utils/blog-permalink';
+import vercelConfig from '../../vercel.json';
 
 function esc(str: string): string {
     return str
@@ -68,7 +69,7 @@ ${stylesheet}
     const urls: string[] = [];
 
     // Páginas estáticas (apenas páginas legítimas do site)
-    const staticPaths = ['/', '/blog', '/contato', '/sobre'];
+    const staticPaths = ['/', '/blog', '/contato'];
     for (const p of staticPaths) {
         urls.push(urlNode(base, p, today));
     }
@@ -80,20 +81,21 @@ ${stylesheet}
         const urlPrefix = (settings.blogUrlPrefix as BlogUrlPrefix) || 'blog';
         for (const post of posts) {
             const postPath = getPostUrl({ ...post, data: { ...post.data, slug: post.data.slug || post.id } }, permalinkStructure, urlPrefix);
-            urls.push(urlNode(base, postPath, post.data.publishedDate as string || today));
+            urls.push(urlNode(base, postPath, (post.data.updatedDate || post.data.publishedDate) as string || today));
         }
     } catch (e) {
         console.error('\x1b[31m✗ Erro ao coletar posts para sitemap:\x1b[0m', e);
     }
 
-    // Autores
+    // Páginas institucionais (autora, privacidade, termos, aviso de afiliado).
+    // Não listamos /authors/* nem /sobre: a autora tem uma única página canônica em /sobre-a-isabela.
     try {
-        const authors = await getCollection('authors');
-        for (const author of authors) {
-            urls.push(urlNode(base, `/authors/${author.id}`, today));
+        const pages = await getCollection('pages');
+        for (const page of pages) {
+            urls.push(urlNode(base, `/${page.data.slug || page.id}`, today));
         }
     } catch (e) {
-        console.error('\x1b[31m✗ Erro ao coletar autores para sitemap:\x1b[0m', e);
+        console.error('[31m✗ Erro ao coletar páginas institucionais para sitemap:[0m', e);
     }
 
     // Páginas locais: [location]/[service] - apenas no modo local
@@ -119,9 +121,16 @@ ${stylesheet}
 
     // Filtro de exclusão estrito contra páginas parasitas/órfãs fora do nicho
     const excludedPatterns = [/^\/servicos(\/.*)?$/, /^\/lp1(\/.*)?$/, /^\/curso-vendas(\/.*)?$/];
+    // URLs que o vercel.json redireciona nunca devem entrar no sitemap (só URLs 200 canônicas)
+    const redirectSources = new Set(
+        (vercelConfig.redirects || [])
+            .map((r: { source: string }) => r.source)
+            .filter((s: string) => !s.includes(':')),
+    );
     const filteredUrls = urls.filter(entry => {
         const match = entry.match(/<loc>(?:https?:\/\/[^\/]+)?(\/[^<]*)<\/loc>/);
         const path = match ? match[1] : '';
+        if (redirectSources.has(path)) return false;
         return !excludedPatterns.some(pattern => pattern.test(path));
     });
 

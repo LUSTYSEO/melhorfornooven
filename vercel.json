@@ -7,6 +7,21 @@
       "permanent": true
     },
     {
+      "source": "/authors/:slug",
+      "destination": "/sobre-a-isabela",
+      "permanent": true
+    },
+    {
+      "source": "/sobre",
+      "destination": "/sobre-a-isabela",
+      "permanent": true
+    },
+    {
+      "source": "/termos-de-uso",
+      "destination": "/termos",
+      "permanent": true
+    },
+    {
       "source": "/air-fryer-oven",
       "destination": "/melhor-air-fryer-oven",
       "permanent": true
@@ -18,12 +33,12 @@
     },
     {
       "source": "/airfrier-mondial-12l-analogica",
-      "destination": "/airfryer-mondial-12l-analogica",
+      "destination": "/air-fryer-oven-mondial",
       "permanent": true
     },
     {
       "source": "/bella-cuccina-oven-bcfr02",
-      "destination": "/",
+      "destination": "/air-fryer-britania-e-boa",
       "permanent": true
     },
     {
@@ -33,7 +48,7 @@
     },
     {
       "source": "/airfryer-philco-40-litros-pfe40l",
-      "destination": "/",
+      "destination": "/air-fryer-oven-philco",
       "permanent": true
     },
     {

@@ -30,6 +30,7 @@ const pageImage = post.data.metaImage || post.data.thumbnail;
     description={pageDescription}
     thumbnail={pageImage}
     publishedDate={post.data.publishedDate}
+    updatedDate={post.data.updatedDate}
     category={post.data.category}
     type="article"
     faqs={post.data.faqs}
@@ -169,7 +170,7 @@ const pageImage = post.data.metaImage || post.data.thumbnail;
                                     <p class="text-lg mb-6 italic leading-relaxed" style="color: var(--blog-text-muted);">"{author.data.bio}"</p>
                                 )}
                                 <a 
-                                    href={`/authors/${author.id}`} 
+                                    href="/sobre-a-isabela" 
                                     class="inline-flex items-center gap-2 px-6 py-3 bg-primary/20 text-primary border border-primary/30 rounded-xl font-bold hover:bg-primary hover:text-white transition-all"
                                 >
                                     Ver perfil completo
