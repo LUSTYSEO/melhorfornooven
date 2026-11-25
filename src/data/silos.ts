@@ -107,6 +107,7 @@ export const SATELLITES: Record<string, string> = {
   'como-usar-o-espeto-giratorio-air-fryer-oster': 'espeto',
   'frango-assado-na-air-fryer-oven': 'espeto',
   'carne-na-air-fryer-oven': 'espeto',
+  'air-fryer-oven-cesto-giratorio': 'espeto',
   'air-fryer-oven-precisa-virar-os-alimentos': 'espeto',
   'temperatura-air-fryer-oven': 'espeto',
   'como-pre-aquecer-air-fryer-oven': 'espeto',
@@ -131,6 +132,7 @@ export const SATELLITES: Record<string, string> = {
   'pode-usar-forma-de-aluminio-na-air-fryer-oven': 'cb',
   // Electrolux
   'air-fryer-oven-vermelha': 'electrolux',
+  'electrolux-eaf85-ou-eaf90': 'electrolux',
   // marcas (pilar ainda não existe)
   'air-fryer-oven-branca': 'marcas',
   'air-fryer-oven-oster': 'marcas',
