@@ -61,6 +61,34 @@ const personNode = {
   "image": `${siteUrl}/images/isabela-avatar.webp`,
   "jobTitle": "Especialista em Eletrodomésticos e Fornos Air Fryer",
   "worksFor": { "@id": `${siteUrl}/#organization` },
+  // Formação, certificação e prêmio: manter iguais ao texto de /sobre-a-isabela.
+  "description": "Designer de produto com 12 anos na indústria de eletrodomésticos como Analista de Testes e Qualidade de Produtos. Consultora independente e criadora de conteúdo desde 2018.",
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Universidade Federal de Minas Gerais",
+    "alternateName": "UFMG",
+    "url": "https://ufmg.br/"
+  },
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "degree",
+      "name": "Bacharelado em Design de Produto",
+      "recognizedBy": { "@type": "CollegeOrUniversity", "name": "Universidade Federal de Minas Gerais" }
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "degree",
+      "name": "Pós-graduação em Gestão de Projetos e Inovação"
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "certificate",
+      "name": "Análise de Performance e Consumo Energético de Eletrodomésticos",
+      "recognizedBy": { "@type": "Organization", "name": "SENAI" }
+    }
+  ],
+  "award": "Inovadora do Ano, categoria Eletrodomésticos Compactos, Feira EletroLar Brasil 2020",
   "knowsAbout": ["Air fryer oven", "Fornos air fryer", "Eletrodomésticos de bancada"],
   "sameAs": [
     "https://www.linkedin.com/in/isabela-dantas-b079b0386/",
